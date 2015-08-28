@@ -1,0 +1,16 @@
+github.com
+	Neues Repository anlegen
+
+Lokal:
+	mkdir "Neuer ordner"		# Verzeichnis anlegen
+	cd "Neuere ordner"			# ins Vezeichnis wechseln
+	git init								# Initialisieren eines neuen GIT Repository's
+	toch text.txt 					# Anlegen einer neuen Datei
+	git add text.txt 				# Datei in das Repository aufnehmen, d.h unte Versionsverwaltung gestellt
+	git commit -m 'Initialisierung'
+													# Die neue Datei wird in den Bereich der Daten geschoben, die mit dem Server syncronisiert werden sollen
+	git remote add origin https://github.com/VossMar/FIT4H_E-Pro.git
+													# Das Lokale Repository wird mit dem öffentlichen auf dem Server verbunden;
+														es wird dem Github-Repository hinzugefügt
+	git push -u origin master
+													# Die Änderungen, die auf dem lokalen Repository durchgeführt wuden, werden mit dem Stand auf dem Server verglichen und die neuere Version wird auf den Server kopiert

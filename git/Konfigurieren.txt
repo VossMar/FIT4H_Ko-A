@@ -1,0 +1,10 @@
+Parameter:
+			--global			#Die Einstellungen gelte für alle git-Anwendungen dieses Users auf dem Rechner
+
+
+git gonfig --global user.name "VossMar"
+																		#Der bei Github.com gemappte Username sollte hier eingetragen werden
+git config --global user.email "vossi.93@hotmail.de"
+																		#Die bei Github.com gemappte E-Mail sollte hier eingetragen werden
+git config --global credential.helper 'cache --timeout=36000'
+																		#Damit nicht bei jedem push der Benutzer und Passwort eingegeben werden muss, werden die Daten für 36000 Sekunden gespeichert
