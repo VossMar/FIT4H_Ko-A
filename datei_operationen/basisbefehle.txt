@@ -1,0 +1,13 @@
+cd
+
+mkdir
+	#erstellt einen neuen Ordner
+ls
+	#listet Dateien im Verzeichnis auf
+cp
+
+rm
+	# löscht Dateien und Verzeichnisse
+	rm -rf Bsp.Ordner
+		# -r rekursive: von hier an alle Verzeichnisse
+		# -f force: alles wird ohne Nachfrage gelöscht
