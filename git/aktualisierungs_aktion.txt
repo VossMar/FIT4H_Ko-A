@@ -1,0 +1,14 @@
+Schritte zum Aktualisieren:
+
+1.Sicherstellen, dass man in der Basis des verwalteten Verzeichnisses ist 
+	(home/pan/Dokumente/FIT4H_Ko-A) (home/pan/Dokumente/FIT4H_E-Pro)
+
+2. git add . -A
+		# . steht für das aktuelle Verzeichnis
+		# -A steht für alle geänderten, hinzugefügten und gelöschten Daten
+
+3. git commit -am "Bennenung der Revision"
+		# Bestätigung der Änderung lokal
+
+4. git push origin master
+		# Hochladen der lokal bestätigten Daten
