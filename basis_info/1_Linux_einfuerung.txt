@@ -1,0 +1,49 @@
+Linux
+	# beschreibt nur den Kernel
+	# Linux Distributions ist Linux plus ein Software und Toolpacket für den Anwender
+	
+Ursprung: Finnland
+Entwickler: Linus Torwalds
+Basis: Unix
+Unix-ähnlich
+Öffentlicher Quellcode
+
+Sprache: C
+	#Quellcode muss in Maschienensprache gewandelt werden (kompiliert)
+
+Linux Distributions
+	# Red Hat
+		# Sponsort 'Fedora Project' & CentOS
+	# Scientific Linux
+			# benutzt für wissenschaftliche zwecke (z.B. Kernbeschleuniger 'CERN')
+			# Red Hat basiert
+	# Open SUSE
+			# von Slackware abgeleitet
+			# Desktop-basiert
+	# Debian
+			# unterstützt viele herkömmliche Plattformen, wie z.b Intel oder AMD
+	# Ubuntu
+			# Debian basiert
+	# Linux Mint
+
+
+
+Kernel
+	# koordiniert die Zuweisung von Speicher für Programme (lässt teilwese auch Prozesse pausieren, um andere kurz laufen zu lassen "multitasking")
+
+Bootloader
+	# kleiner Code der den Kernel zum starten läd
+
+(Veranschaulicht: Bootloader=Towerfahrstuhl Kernel=Tower Programme=Flugzeuge)
+
+API
+	# Application Programming Interface: Programmierschnittstelle
+
+Prozess
+	# nur eine Aufgabe die der Kernel startet, verwaltet und übewacht
+
+Command
+	# ist ein Befehl, der wenn er in der CommandLine ausgeführt wird eine Aktion auf dem PC verursacht
+
+Maintanance Cycle /Life Cycle
+	# gibt an wie lange eine Softwareversion ohne Upgrade auskommt
