@@ -1,7 +1,13 @@
+
+
 cd
 
 mkdir
 	#erstellt einen neuen Ordner
+
+touch
+	# erstellt neue Datei
+
 ls
 	#listet Dateien im Verzeichnis auf
 cp
