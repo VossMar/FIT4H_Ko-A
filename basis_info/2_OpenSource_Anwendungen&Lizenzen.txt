@@ -1,0 +1,74 @@
+Server-Software
+	# Keine dierekte Visualisierung, beabsichtigen Daten zu anderen Systemen weiterzuleiten.
+
+Desktop-Software
+	# Zur dierekten Anwendung gedacht, auch Client genannt
+
+Tools
+	# ausgelagerte Softwarepackete, die die Anwendung vereinfachen sollen
+
+shell
+	# anspruchsvolle tools, die Software-Code in ausführbaren umwandeln
+
+
+Appache
+	# Web-Server 
+nginx
+	# Web-Server (Unix-Kernels)
+
+E-Mail-Server
+	# 3 versch Aufgaben
+	MTA "Mail Transfer Agent"  
+		# ermittelt welcher Server die E-Mail erhalten soll
+		#Bsp. sendmail, Postfix, procmail
+		# benutzt zum versenden SMTP "Simple Mail Transfer Protocol"
+	MDA "Mail Delivery Agent"(Local Delivery Agent)
+		# Pflegt die Speicherung der Mails im Postfach
+	POP/IMAP-Server "Post Office Control/Internet Message Accsess Protocol"
+		# Kommunikationsprotokolle die einen Email-Client benutzen um Emails zu empfangen
+		# Bsp. Dovecot, Syrus IMAP
+
+Filesharing
+	Samba
+		# Kann wie eine Windows-Maschiene aussehen, und kann in Windows Domänen agieren
+	Netatalk
+		# Agiert wie ein Apple-File-Server
+
+NFS "Network File System"
+	# Ursprüngliches File-Share-Protokoll für UNIX
+	# Bestandteil des Kernels
+
+DNS
+	# Verzeichnisdienst, der Netzadressnamen in IP's wandelt
+
+LDAP "Lightweight Directory Accsess Protocol"
+	# Meistgenutzter Verzeichnisdienst
+	# Baumstruktur
+	# OpenLDAP meistvertretener Anbieter
+
+DHCP "Dynamic Host Configuration Protocol"
+	# Wartet auf Anfragen für IP-Adressen und vergibt diese
+
+Datenbanken
+	# Speichern Daten
+	# Bsp. MySQL, PostgreSQL
+
+
+Programme
+
+xWindow (x11)
+	# auf diesem läuft der Desktop, welches den X.org-Server benutzt
+
+Desktopumgebung
+	# Beinhaltet Anmeldebildschirme, Sitzungen, Dateimanager, und weitere Hilfsmittel
+	# Hauptsächliche Umgebunbgen KDE und GNOME
+
+Window Manager
+	# Stellen Fenster und Symbole dar
+	# vereinfachte version der Desktopumgebung
+	# Bsp.-Programme: Compiz, FVWM, Enlightenment
+
+
+
+
+

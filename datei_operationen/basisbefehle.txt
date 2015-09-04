@@ -1,6 +1,10 @@
-
+Strg + l
+	#leert die Konsole
 
 cd
+	# wechselt das Verzeichnis (wechselt in das Hauptverzeichnis)
+	# cd Dokumente (Wechselt in den Unterordner 'Dokumente')
+	# cd .. (Wechselt in das übergeordnete Verzeichnis)
 
 mkdir
 	#erstellt einen neuen Ordner
@@ -9,8 +13,10 @@ touch
 	# erstellt neue Datei
 
 ls
-	#listet Dateien im Verzeichnis auf
+	# listet Dateien im Verzeichnis auf
+
 cp
+	# 
 
 rm
 	# löscht Dateien und Verzeichnisse
