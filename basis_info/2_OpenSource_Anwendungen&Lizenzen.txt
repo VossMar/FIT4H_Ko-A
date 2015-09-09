@@ -72,7 +72,7 @@ Office Suites
 	# Wichtige Programme zum Bearbeiten von Dokumenten, Tabellen und Präsentationen
 	# OpenOffice
 		# Entstanden aus StarOffice (Deutschland '99)
-	# LibrOffice
+	# LibreOffice
 		# in vielen Linux-Distributionen enthalten
 
 Webbrowser
