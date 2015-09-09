@@ -107,15 +107,33 @@ Text Editoren
 Entwicklerwerkzeuge
 
 Programmiersprachen-Arten:
-	# interpreted (gedeutet)
-		#
+	# interpreted (wird bei ausführung gewandelt)
+		# bitet mehr eigenschaften, als compiled-Sprachen
+		# oft weniger Code benötigt
+		# Der Übersetzter ist normalerweise in einer anderen Sprache geschrieben, meißtens C oder auch Java
+		#Bsp.-Sprache:
+			# Perl / ursprünglich für Text-bearbeitung / kann heutzutage aber auch alles
+			# Ruby / z.T. auch von Perl und Shell beeinflusst / macht komplexte Funktionen einfacher / erste Wahl für schwierige Web-Programme
+			# Python / macht schwierige Funktionen einfacher/ beinhaltet das Gerüst "Django", speziell für Web-Programme / oft an Hochschulen verwendet
+			# PHP / hauptsächlich gemacht für Webseiten / einfach zu lernen und auf fast allen Systemen verfügbar
 		
-	# compiled (übersetzt)
+	# compiled (wird geandelt und gespeichert)
 		# Bsp.-Sprache: 
 			# C (Linux) /nahe am Maschienencode / kurz und effizient
 			# C++ / mehr Objektorientiert
 			# Java /compiled erst für "Java Virtual Machine"
-				#
+				# JVM zum benutzen für Client notwendig
+				# Kann Programme simulieren, welche die CPU sonst nicht hat
+
+Bibliotheken
+	# Beinhalten gebräuchliche Funktionen, die der Entwickler benutzen kann
+	# Bsp.-Bibliotheken:
+		# ImageMagick / Funktionspacket für Bildbearbeitung
+		# OpenSSL / Funktionspacket zur Einbindung von Websiten (Protokolle;Verschlüsselungen)
+		# C library / Basis-Funktionspacket zum lesen und schreiben für Datein
+		
+
+	
 			
 		
 
