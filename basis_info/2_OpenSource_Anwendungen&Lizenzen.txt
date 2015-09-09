@@ -61,14 +61,63 @@ xWindow (x11)
 
 Desktopumgebung
 	# Beinhaltet Anmeldebildschirme, Sitzungen, Dateimanager, und weitere Hilfsmittel
-	# Hauptsächliche Umgebunbgen KDE und GNOME
+	# Hauptsächliche Umgebunbgen: KDE und GNOME
 
 Window Manager
 	# Stellen Fenster und Symbole dar
 	# vereinfachte version der Desktopumgebung
 	# Bsp.-Programme: Compiz, FVWM, Enlightenment
 
+Office Suites
+	# Wichtige Programme zum Bearbeiten von Dokumenten, Tabellen und Präsentationen
+	# OpenOffice
+		# Entstanden aus StarOffice (Deutschland '99)
+	# LibrOffice
+		# in vielen Linux-Distributionen enthalten
 
+Webbrowser
+	# Firefox & GoogleCrome
+	# Schnelle Browser, viele Features, support für Entwickler
+
+E-Mail Client
+	# Beinalten POP/IMAP-Server, SMTP-Server und zeigen E-Mails lokal an
+	# Bsp.-Programme Thunderbird, Evolution (GNOME), KMail (KDE)
+	
+Bearbeitungsprogramme
+	# Bsp.-Programme Blender (3D Filmbearbeitung), BIMP (Bildbearbeitung), Audacity (Audiobearbeitung)
+
+
+Konsolenwerkzeuge
+
+Shell's
+	# Komandowerkzeug, welches Befehle annimmt und diese dem Kernel weitergibt
+	# 2 hauptsächlich benutzte Shellarten: 
+		# Bourne shell (heutzutage Bourne Again Shell [Bash]) / auf den meisten System schon eingebunden 
+		# C shell (heutzutage tee-cee-shell[tcsh])
+	# Weitere Shells: Korn shell (ksh) & zsh
+
+Text Editoren
+	# Zum Bearbeiten von Konfigurationsdatein
+	# 2 hauptsächlich benutzte Editoren:
+		# vi ( heutzutage vim) auf jedem Linux system
+		# emacs
+	# simplere Versionen: pico & nano
+	
+	
+Entwicklerwerkzeuge
+
+Programmiersprachen-Arten:
+	# interpreted (gedeutet)
+		#
+		
+	# compiled (übersetzt)
+		# Bsp.-Sprache: 
+			# C (Linux) /nahe am Maschienencode / kurz und effizient
+			# C++ / mehr Objektorientiert
+			# Java /compiled erst für "Java Virtual Machine"
+				#
+			
+		
 
 
 
