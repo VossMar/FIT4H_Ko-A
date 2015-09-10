@@ -1,0 +1,47 @@
+Benutzung
+	# Grafischer Mudus
+		# Programe werden in Fenstern ausgefürt, die beliebig bewegt und geändert werden können
+		# Programme und Tools werden in Menus angezeigt und können dort ausgewählt werden
+		# Es können mehrere Programme parrallel laufen
+		# Recsourcen-ziehend
+	# Nicht grafischer Modus
+		# läuft hauptsächlich in der shell
+		# Programme werden nur in Textform ausgegeben
+		# verbraucht wenig Resourcen
+		# "message of the day" (MOTD) /erscheint nach Anmeldung
+			# möglichkeit für den Admin den Usern Informationen zu mitzuteilen
+
+Komandozeile (Command Line)
+	# Eingabefeld für alles (von Buchstaben bis zu aufwändigen Scripts)
+	# im grafischen Modus wird eine shell benötigt / nicht-grafischer Modus läuft nur auf Basis dieser
+	# Bsp.-Shells: terminal; x-term
+
+multiuser operating system
+	# mehrere verschiedene Benutzer können auf dem selben System Arbeiten
+	# limitiert auf die Speicherkapazität und den CPU-Speicher
+	# sollten nicht alle als Admin gestuft sein
+
+Virtualization
+	# Beschreibt, dass ein Host-System, auf dem eine spezielle Software läuft(hypervisor), als Platform fungiert, auf dem mehrere virtuelle Systeme ausgeführt werden
+	# funktioniert, da Server andernfalls keine großen Resourcen benötigen
+	# jedes System bekommt eigene CPU,RAM und HDD-Speicher zugewiesen
+
+Cloud computing
+	# beschreibt auch das Benutzen eines Systems (z.B.Betriebssysteme, File-Server,Datenbanken), das Harwaremäßig z.B. in einer Server-Landschaft steht
+	# man bezahlt nur für die benutzung und muss nicht sein eigene Hardware aufsetzten und beteiben
+
+Linux-Sicherheit
+	# gutes einzigartiges Passwort setzten (mind.10 Zeichen,Buchstaben,Zahlen,Sonderzeichen)
+	# Passwortgenerator: KeePassX
+	# regelmäßige Updates
+	# Firewall (Datenfilter für Netzwerkkommunikation) / schon verbaut
+		# gufw / einfache Schnittstelle für die Firewall
+		# Blockiert eingeschaltet alle einkommenden Verbindungen, wenn einzelne nicht freigegeben werden
+
+User-Sicherheit
+	# ein grundsätzliches Misstrauen gegenüber Websiten ist vorteilhaft
+	# unterschiedliche Passwörter für Websiten
+	# Cookies werden zum Nachverfolgen von Web-Aktivitäten genutzt / können auch ausgeschaltet werden
+	# zum Tarnen der eigenen Identität beim Browsen wird der "TorBrowser"(The Onion Router) bevorzugt
+
+

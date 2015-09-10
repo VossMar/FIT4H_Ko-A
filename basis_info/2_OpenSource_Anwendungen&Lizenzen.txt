@@ -155,4 +155,4 @@ Open source software
 			# Entwickler gibt das Recht ab zu entscheiden wie und wofür die Software verbreitet wird 
 			# Auch FLOSS (Free/Libre Open Source Software) / macht ausdrücklich klar, dass diese Software frei verwendet werden kann 
 		# Apache Foundation 
-			gg
+	# 2 große Hauptanbieter: "Free Software Foundation"(FSF) & "Open Source Initiative"(OSI)

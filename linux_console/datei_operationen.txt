@@ -1,0 +1,59 @@
+Strg + l
+	#leert die Konsole
+
+cd (ermöglicht das Navigieren innerhalb des Dateisystems)
+	cd .. 
+		# Wechselt in das übergeordnete Verzeichnis
+	cd ~
+		# wechselt in das Hauptverzeichnis des Users (bei Ubuntu auch nur mit cd möglich)
+	cd /
+		# wechselt in das root-Verzeichnis
+	cd Dokumente 
+		# Wechselt in den Unterordner 'Dokumente' (relativer Pfad)
+	cd /home/pan/Dokumente	
+		# Wechselt in den Ordner 'Dokumente' (absoluter Pfad)
+
+mkdir (ermöglicht das erstellen von neuen Ordnern)
+	mkdir verz_01
+		#erstellt einen neuen Ordner "verz_01" im aktuellen verzeichnis
+	mkdir /home/pan/Dokumente/verz_01
+		#erstellt einen neuen Ordner "verz_01" mit absoluter Pfadangabe
+
+touch (zum erstellen neuer Datein)
+	touch datei_neu
+		# erstellt eine neue Datei "datei_neu" im akt. Verzeichnis
+		# mehrere Datein können auf einmal, getrennt durch ein Leerzeichen erstellt werden 
+
+ls (zum Auflisten von Datein und Verzeichnissen)
+	ls -lat
+		# -a: zeigt alles an, auch versteckte Datein und Ordner
+		# -l: gibt Datein und ordner untereinander gelistet mit mehr Infos aus
+	 	# -t: listet Daten auf, beginnend mit dem neustem Datum
+
+cp (zum kopieren von Ordnern und Verzeichnissen)
+	cp quelle ziel
+		# Syntax
+	cp datei3 datei4
+		# die exestierende datei3 wird als datei4 im aktuellen Verzeichnis neu erzeugt, oder überschrieben
+	cp datei3 ~/Dokumente/datei3
+		# Die Datei wird in das Verzeichnis Dokumente kopiert
+	cp -r verz1 verz2
+		# mit -r wird das Quellverzeichnis mit allen Unterordner und Dateien in das Ziel kopiert
+	cp *txt /verz_u
+		# Kopiert alle Datein in das Zielverzeichnis
+
+mv
+	mv quelle ziel
+		# Syntax
+		# Wird zum Umbenennen und Verschieben von Datein und Verzeichnissen benutzt
+
+rm (löscht Dateien und Verzeichnisse)
+	rm -rf Bsp.Ordner
+		# -r: rekursive: von hier an alle Verzeichnisse
+		# -f: force: alles wird ohne Nachfrage gelöscht
+
+less
+	less datei_name
+		# zeigt die Datei "datei_name" Seitenweise an
+		# weiterblättern mit Leertaste
+		# beenden mit q
