@@ -130,12 +130,29 @@ Bibliotheken
 	# Bsp.-Bibliotheken:
 		# ImageMagick / Funktionspacket für Bildbearbeitung
 		# OpenSSL / Funktionspacket zur Einbindung von Websiten (Protokolle;Verschlüsselungen)
-		# C library / Basis-Funktionspacket zum lesen und schreiben für Datein
-		
-
-	
-			
-		
+		# C library / Basis-Funktionspacket zum lesen und schreiben für Dateien
 
 
+Lizenzen 
 
+Closed source software 
+	# Eigentümer der Software ist der Entwickler 
+	# Benutzer erwerben Lizenz nur zum benutzen der Software 
+	# Geld fließt je nach Geschäftsmodell des Entwicklers 
+	# Bsp.-Software & Lizenz:
+		# Microsoft Windows / Microsoft erhebt intellektuellen Eigentum / "End User License Agreement" (EULA)  die Lizenz
+			# MS hält Quelltext unter Verschluss 
+			# Es wird nur der Maschienencode verteilt 
+			# Benutzern ist nur erlaubt, die Software zu installieren & benutzen, aber keine Kopien anzufertigen 
+
+Open source software
+	# Quelltext muss frei verfügbar sein
+	# Bsp.-Lizenzen:
+		# Gnu Public License version 2 (GPLv2)
+			# Erlaubt Benutzern u.A. Änderungen vorzunehmen, diese aber bei Veröffentlichung unter die gleiche Lizenz zu stellen 
+			# der Quellcode darf nicht für Geld verkauft werden
+		# Free and Open Source Software (FOSS) 
+			# Entwickler gibt das Recht ab zu entscheiden wie und wofür die Software verbreitet wird 
+			# Auch FLOSS (Free/Libre Open Source Software) / macht ausdrücklich klar, dass diese Software frei verwendet werden kann 
+		# Apache Foundation 
+			gg
