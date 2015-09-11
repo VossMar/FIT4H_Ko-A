@@ -155,4 +155,30 @@ Open source software
 			# Entwickler gibt das Recht ab zu entscheiden wie und wofür die Software verbreitet wird 
 			# Auch FLOSS (Free/Libre Open Source Software) / macht ausdrücklich klar, dass diese Software frei verwendet werden kann 
 		# Apache Foundation 
-	# 2 große Hauptanbieter: "Free Software Foundation"(FSF) & "Open Source Initiative"(OSI)
+	# 2 große Hauptanbieter/Grundlagen: 
+		# "Free Software Foundation"(FSF)
+			# Ziel: voranbringen von Freier Software
+			# sehen closed source als schlecht an
+			# man soll seine änderungen teilen dürfen
+			# Eigene Lizenzen sind z.B.: GPLv2 & v3, LGPLv2 & v3
+			
+		# "Open Source Initiative"(OSI)
+			# gibt keine Einschränkungen für den Verwendungszweck an
+			# haben ein Packet von Richtlinien
+			# pflegen eine liste von Lizenzen, die diese Richtlinien erfüllen (Open Source licenses)
+				# Bsp.-Lizenzen: 	BSD (einfache Lizenz, die nur vorschreibt, dass man das copyright einhält und bei änderungen seinerseits nicht preisgibt, diese getan zu haben
+							MIT (der gleiche scheiß, bloß in anderen Worten)
+							GPLv2 und co aber auch
+
+Andere Lizenzen
+	# Creative Common Licenses 	 /SA: ShareAlike; ND: NoDerivs; NC: No Commercial 
+		# CC BY		ähnlich BSD, Inhalt kann für alles benutzt werden, Eigentümer muss nur erwähnt werden
+		# CC BY-SA	geänderter Inhalt muss unter der gleichen Lizenz weitergegeben werden
+		# CC BY-ND	Weitergabe erlaubt, aber keine Änderungen
+		# CC BY-NC	kann für alles benutzt werden, außer für gewerbliche Zwecke
+		# CC-BY-NC-SA	nicht für gewerbliche zwecke, muss unter gleicher lizenz weiter vertrieben werden	
+		# CC-BY-NC-ND	Verbreitung des Inhalts, der nicht geändert werden dart, für nicht gewerbliche Zwecke
+		# CC0		Keine Rechte vorbehalten
+		
+
+	
