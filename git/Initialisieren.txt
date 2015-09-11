@@ -14,3 +14,6 @@ Lokal:
 														es wird dem Github-Repository hinzugefügt
 	git push -u origin master
 													# Die Änderungen, die auf dem lokalen Repository durchgeführt wuden, werden mit dem Stand auf dem Server verglichen und die neuere Version wird auf den Server kopiert
+
+
+	git pull origin master
