@@ -1,6 +1,15 @@
 Linux
-	# beschreibt nur den Kernel
-	# Linux Distributions ist Linux plus ein Software und Toolpacket für den Anwender
+	# unter Linux versteht man ein distributionsübergreifendes Betriebssystem.
+		Faktisch besteht Linux aber nur aus dem sogenannten Kernel, der die Basisfunktionen zwischen User, Mainboard und Komponenten gewährleistet. Der Kernel ist komplett unabhängig von der Distribution.
+		# unter einer Distribution versteht man:
+			- Softwarepakete, die nicht zum Kernel gehören, etwa Gimp, OpenOffice, etc.
+			- die Art und Weise wie Software verwaltet wir. Es Gibt hier zwie große Paketmanager:
+				- Aptitude bei Debian
+				- RPM bei RedHead
+			- der Prozess der Instalation
+			- der Prozess der Verwaltung der Updates und der Entwicklung neuer Versionsstände
+			- die Präferenz bestimmter grafischer Oberflächen
+
 	
 Ursprung: Finnland
 Entwickler: Linus Torwalds

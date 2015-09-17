@@ -1,0 +1,20 @@
+Die Konfigurationsdatein liegen im Home-Verzeichnes des jeweiligen Benutzers.
+Obwohl es sich bei der Konsole um ein Distributionsübergreifendes Programm handelt, sind die Konfigurationsdatein bei jeder Distribution unterschiedlich.
+
+.bash_history
+	# "Hier werden die Letzten 500 Befehle gespeichert"
+	# "Str + r + Befehl auf der Konsole ausgegeben" sucht den letzten so lautenden Befehl
+	# "history -c" löscht die einträge der History
+
+.bash_logout
+	# Wird nur verwendet, wenn der User über einen Login-Vorgang (Remoteserver) die Shell(Bash) geöffnet hat. Bei Logout werden die Befehle der bash_logout ausgeführt.
+
+.bash_profile
+	# Wird nur verwendet, wenn der User über einen Login-Vorgang (Remoteserver) die Shell(Bash) geöffnet hat. Bei Login werden die Befehle der bash_login ausgeführt.
+
+.bashrc
+	# Wird geöffnet, wenn der User die Shell(Bash) manuell über das Icon öffnet.
+	# alias koa='cd /home/pan/Dokumente/koa'
+		# source .bashrc 		- Die datei neu laden
+		# koa 							- Navigiert zum Ordner koa
+	# PATH								- definiert die Pfade zum Suchen ausführbarer Datein

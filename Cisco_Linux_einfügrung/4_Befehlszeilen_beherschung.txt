@@ -1,0 +1,47 @@
+whoami
+	# gibt den Namen des angemeldeten Benutzer aus
+
+hostname
+	# gibt den vollständigen Namen des Hosts aus
+	# -s/--short	-	gibt die kurzform aus
+
+pwd
+	# anzeigen des aktuellen verzeichnisses
+
+echo
+	# erzeugt eine Ausgabe
+	# echo D* 	-	listet alle Datei- und Ordnernamen auf, die mit D anfangen
+		# * - ist ein Platzhalter für beliebig viele Zeichen
+		# ?	-	ist ein Platzhalter für ein Zeichen
+	# echo `date` / echo $(date)	-	gibt das aktuelle Datum aus
+
+which Datei
+	# zeigt den Pfad der Datei an, die bei einfachem Eingeben des Dateinames ausgeführt werden würde
+
+
+[DP]*
+	# Zeigt alle Datein/Verzeichnisse an, die mit D oder P anfangen
+[!D-P]*
+	# Zeigt alle Datein/Verzeichnisse an, die nicht mit den Buchstaben einschließlich D bis P anfangen
+
+'`date`' / \`date`\
+	# befehl für Ausgabe auskommentieren ( "" haben keinen Einfluss auf die Blockquote-Zeichen)
+
+;
+	# Trennzeichen für Befehle, die in einer Zeile eingetippt und dann ausgeführt werden sollen
+
+&&	
+	# Trennzeichen für Befehle, die in einer Zeile eingetippt und dann ausgeführt werden sollen
+	# Führt das nächste aber nur aus, wenn das vorherige keine Fehler ergeben hat 
+		- Bsp: echo hi && false && echo hi 	-	 gibt nur das hi aus
+
+history
+	# zeigt den Befehlsverlauf
+	# hsitory 5	-	zeigt die letzten 5 Befehle
+
+!5
+	# führt den 5. Befehl in der History aus
+!-5
+	# führt den 5.letzten Befehl aus
+
+

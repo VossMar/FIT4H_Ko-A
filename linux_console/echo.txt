@@ -1,0 +1,2 @@
+echo		# Ausgabe auf der Konsole
+	# echo $PATH		- gibt die in der Variable PATH gespeicherten Pfade aus
