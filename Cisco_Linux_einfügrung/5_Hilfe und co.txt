@@ -1,0 +1,34 @@
+allgemeine hilfe
+	optiopn --help
+
+Manual Package
+	man
+		Bsp. man date
+			/file oder apropos
+				in dem Manual Package kann man mit "/Suchobjekt" nach Objekten suchen
+				n / N - durch gefundene objekte tabben
+				leetaste - nächste seite anzeigen
+				eingabetaste - nachste zeile anzeigen
+			man -k password - auflistung der unterkapitel im manual für password
+			man -f passwd oder whatis passwd - zeigt alle manuals für passwd an, springt ohne -f in das erste gefundene zum auswährlen eines mauals "man 5 passwd tippen"( die zahl, die mit -f angezeigt wird also vor den begriff schreiben)
+info
+		Bsp. info date
+			geschriebene form der hilfe
+				h - um in die Bewegungsbefehle einzusehen , l um zum dokument zurückzugelangen
+				Enter auf betreffender stelle ausführen um auf die infoseite der betreffenden stelle aufzurufen l zum zurückkehren
+ls /usr/share/doc
+		weitere hilfen unter dem pfad
+
+locate
+		sucht dateipfade der angegebenen datei
+		Bsp.: locate crontab
+		-b "\crontab" - beschränkt die suche nur auf datein, die so heißen
+
+whereis
+		sucht dateipfade, aber nur für kommando-und manual pages
+
+
+
+
+
+

@@ -1,0 +1,34 @@
+pwd oder echo $HOME
+	zeigt aktuelles arbeitsverzeichniss
+cd / um in das root verzeichniss zu wechsel
+cd um in das arbeitsverzeichniss zurückzukehren
+~bob wechselt in das homeverzeichniss von bob
+cd .. gehe einen ordner in der struktur zurück
+
+ls 
+ listet den inhalt des ordners auf
+ -a / auch versteckte
+ -l / erweiterte infos
+ -R /	listet auch inhalte von unterordnern mit auf
+ -d /s* /nur datein die mit s beginnen und egal wie lang sind
+ 		/[abcd]* datein die mit a,b,c,d anfangen
+ ? / platzhalter für einen buchstaben
+
+cp	quelle/name ziel/name1
+	kopiert die datei von der quelle in das ziel, mit angegebenen dateinamen
+	-v
+		zeigt auch den quellpafad nach ausführung an
+	cp etc/hosts .  	- kopiert host in den aktuellen ordner
+
+
+rm
+	entfernt datein
+	-r entfernt auch underordner und datein
+
+touch
+	legt eine neue datei an
+
+mv 
+	schneidet die quelldatei aus und legt sie im ziel neu an
+	
+
