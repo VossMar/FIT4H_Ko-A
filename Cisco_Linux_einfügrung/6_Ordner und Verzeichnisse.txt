@@ -6,9 +6,10 @@ cd um in das arbeitsverzeichniss zurückzukehren
 cd .. gehe einen ordner in der struktur zurück
 
 ls 
- listet den inhalt des ordners auf
+ listet den inhalt des ordners auf in reihenfolge nach besitzer
  -a / auch versteckte
  -l / erweiterte infos
+ -lh / erweiterte infos in lesbaren größen
  -R /	listet auch inhalte von unterordnern mit auf
  -d /s* /nur datein die mit s beginnen und egal wie lang sind
  		/[abcd]* datein die mit a,b,c,d anfangen
@@ -16,6 +17,8 @@ ls
 
 cp	quelle/name ziel/name1
 	kopiert die datei von der quelle in das ziel, mit angegebenen dateinamen
+	-i / fragt vor überschreiben
+	-n / verhindert überschreiben
 	-v
 		zeigt auch den quellpafad nach ausführung an
 	cp etc/hosts .  	- kopiert host in den aktuellen ordner
@@ -27,8 +30,12 @@ rm
 
 touch
 	legt eine neue datei an
+	updatet die aktuelle zeit einer datei
 
 mv 
 	schneidet die quelldatei aus und legt sie im ziel neu an
+
+Versteckte Datein
+	beginnen mit "."
 	
 
