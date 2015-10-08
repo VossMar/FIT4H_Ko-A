@@ -57,3 +57,13 @@ less
 		# zeigt die Datei "datei_name" Seitenweise an
 		# weiterblättern mit Leertaste
 		# beenden mit q
+
+ln quelle ziel 
+	# verlinkt die zieldatei 
+	# damit wird in der Inode-Tabelle der Festplatte ein Verweis zwischen dem Namen <ziel> und der schon exestierenden Datei <quelle> erzeugt.
+	# wird die Datei <ziel> geändert, ändert sich somit auch die Datei <quelle>
+	# Hardlink 
+		# wird benötigt bei der Installation von komplexen Programmen. Es wird dann ein Verzeichnis auf die Programme im System erstellt, die das zu installierende Programm benötigt.
+ln -s quelle ziel
+	# Symbolischer Link
+	# Ein Verzeichnnis oder Quelle außerhalb der Festplatte können so integriert werden

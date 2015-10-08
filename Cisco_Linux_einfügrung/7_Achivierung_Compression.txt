@@ -57,3 +57,7 @@ Zip files
 
 	unzip -l bla.zip  zeigt entpackte daten an
 	unzip bla.zip uordner/hihi.*  entpackt alle hihi. datein aus dem unterordner
+
+
+updatedb command
+	wird täglich ausgeführt zum updaten der datenbank

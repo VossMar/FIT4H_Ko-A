@@ -1,0 +1,9 @@
+grep
+	mit Hilfe dieses Befehls werden bestimmte Suchmuster in Deitein oder der Standardausgabe gefunden
+
+Beispiel:
+	lspci | grep VGA
+		#Von der Ausgabe der Hardwarekonfiguration (lspci) wird nach dem Suchmuster VGA gesucht
+
+	grep pan /etc/passwd
+		#in der Datei etc/passwd wird nach dem Suchmuster :pan gesucht 

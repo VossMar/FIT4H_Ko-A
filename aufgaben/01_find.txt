@@ -1,0 +1,37 @@
+Benutzen Sie die Consolenhilfe man find.
+
+a. suchen Sie in den Verzeichnissen /bin und /usr alle Dateien, deren Name mit pdf endet
+
+	find /bin /usr -iname *.pdf
+
+b. suchen Sie alle Dateien, von ihrem Home-Verzeichnis ausgehend, die groesser als 1 MB sind
+
+find ~/ -size +1M
+
+c. suchen Sie alle Dateien, von Ihrem Home-Verzeichnis ausgehend, die seit 30 Tagen verändert wurden
+
+find ~/ -mtime -30
+
+d. suchen Sie alle Dateien in dem zur Übung angelegten Verzeichnis, die mit a beginnen und dann ein r oder n als 2. Buchstaben haben
+
+find ~/Dokumente/Test -iname a[rn]*
+
+e. suchen Sie von /home ausgehend alle Dateien des Users als der Sie angemeldet sind
+
+find ~/ -user toast
+
+f. suchen Sie alle Dateien vom Typ link in dem zur Übung angelegten Verzeichnis
+
+find ~/Dokumente/Test -type l
+
+g. lassen Sie find alle Verzeichnisnamen ihres Home-Directorys ausgeben
+
+find ~/ -type d -maxdepth 1
+
+h. suchen Sie alle Dateien von /var/log aus, deren Namen mit einem großen oder kleinen C beginnt, keine Fehlerausgabe
+
+find /var/log -iname [c]* -print 2>/dev/null
+
+i. löschen Sie alle Dateien aus dem Übungsverzeichnis, deren Endung auf .txt lautet
+
+ find ~/Dokumente/Test -name *txt -exec rm {} \;
