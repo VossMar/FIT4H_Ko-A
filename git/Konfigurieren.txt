@@ -2,7 +2,7 @@ Parameter:
 			--global			#Die Einstellungen gelte für alle git-Anwendungen dieses Users auf dem Rechner
 
 
-git gonfig --global user.name "VossMar"
+git config --global user.name "VossMar"
 																		#Der bei Github.com gemappte Username sollte hier eingetragen werden
 git config --global user.email "vossi.93@hotmail.de"
 																		#Die bei Github.com gemappte E-Mail sollte hier eingetragen werden

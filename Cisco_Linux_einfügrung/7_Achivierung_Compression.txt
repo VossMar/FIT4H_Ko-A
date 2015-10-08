@@ -1,0 +1,59 @@
+Archivierung
+	#wird verwendet, Daten übertrage/gespeichert werden sollen
+	#sinnvoll bei:
+		-dem Runterladen vieler Datein auf einmal
+		-verkleinerung und anschließender speicherung alter daten
+		-zur sicherung von Verzeichnissen
+		-Band-medien, z.B Kassetten : kommen besser mit einem kontinuierlichen Datenstrom zurecht, als mit einzelnen Datein
+		-langsamen verbindungen, komprinieren+übertragen+entpacken schneller ist als das senden der originaldatei
+
+Unterscheidungen
+	#Achrivierung
+		-mehrere Datein werden zu einer kombiniert, reduziert den mehraufwand beim übertragen einzelner datein
+	#Komprimierung
+		-verkleinerung der Datei, indem überflüssige oder doppelte daten entfernt werden
+
+
+Komprinmierung
+	# Lossless
+		Datensatz bleibt vollständig erhalten und sieht ähnlich dem Original aus
+		(Für Daten,Software,...)
+	#Lossy
+		Datensatz wird um unwichtige daten erleichtert, z.B. zwei grün-nuoncen werden zu einer zusammengefasst
+		(Für Musik,Bilder,...)
+		GIF,PNG,JPEG
+
+Komprimieren
+	gzip -l  zeigt komprimierte und unkomprimierte datengröße an  (.gz)
+	befehl mit ausgabe | gzip > ksdg.gz  komprimiert die ausgabe des befehls und schreibt diese in die benannte datei
+	bzip2 (.bz / .bz2)
+Entpacken
+	gunzip
+	gzip -d
+	bunzip2
+
+Archivieren
+	tar (fügt automatisch unterordner mit ein)
+		create #erstellt ein archiv
+			# tar -cf neuarchiv(c).tar dateibelibigeendung(f).*
+			# tar -czf (mit gleichzeitiger komprimierung .gz)
+			# tar -cjf (mit gleichzeitiger komprimierung .bz2)
+
+		extract	#entpackt das archiv
+			# tar -xf asf.tar
+			# tar -xjf ajüf.tar.bz2
+			# tar -xzf ajikpf.tar.gz
+			-xzvf verbouse (anzeige)
+			#tar -xzvf bla.tar.gz ordner/inhalt.txt  entpackt nur die Datei
+
+		list	# zeigt den inhalt des archivs an ohne es zu entpacken
+			# tar -tf kas.tar
+			# tar -tjf aäül.tar.bz2
+			# tar -tzf ökdg.tar.gz
+
+Zip files
+	zip "neuarchiv".zip "quellordner/daten"/* fügt genannte daten oder ordnerinhalt zu neuem ziparchiv hinzu (bezieht keine unterornder mit ein, wenn nicht gegeben)
+	zip -r neu.zip quellordner  (-r bezieht daten aus dem ordner mit ein)
+
+	unzip -l bla.zip  zeigt entpackte daten an
+	unzip bla.zip uordner/hihi.*  entpackt alle hihi. datein aus dem unterordner
