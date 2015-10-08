@@ -7,3 +7,9 @@ Beispiel:
 
 	grep pan /etc/passwd
 		#in der Datei etc/passwd wird nach dem Suchmuster :pan gesucht 
+
+	grep '^[AS]' ~/Dokumente/Ko-A/aufgaben/MrOlympia.dat
+		#sucht am Anfang der Zeile (^) nach einem großem A oder S
+
+	grep '\<Coleman\>' ~/Dokumente/Ko-A/aufgaben/MrOlympia.dat 
+		#sucht nach dem dem ganzen Wort (Leerzeichen am Anfang und Ende)
