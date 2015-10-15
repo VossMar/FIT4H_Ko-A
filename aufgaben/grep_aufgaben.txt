@@ -1,0 +1,91 @@
+1. Erstellen Sie mit cat eine Datei Standorte und fuegen Sie folgende Orte hinzu:
+  Augsburg, 84341
+  Bremen, 25981
+  Friedrichshafen, 75544
+  Berlin 10000
+  Halle, 03035
+  Essen, 45678
+  Osnabrueck, 45679
+  Kempten, 78544
+
+  Du bist eine gemeine
+  Ganz Gemeine keine
+
+cat > Standorte
+.
+.
+.
+(Strg+D)
+
+
+2. Geben Sie alle Zeilen aus, in den ein kleines a vorkommt
+  
+grep 'a' Standorte
+
+
+3.  Alle Zeilen, in den die Zeichenfolge hafen vorkommt
+
+grep 'hafen' Standorte
+
+  
+4. Alle Zeilen, bei denen der letzte Buchstabe ein n oder g ist
+
+grep '[e9]$' Standorte
+
+  
+5. Alle Zeilen, bei denen ein Grossbuchstabe zwischen H und M vorkommt
+
+grep '[H-M]' Standorte
+
+  
+6. Alle Zeilen mit grossem B am Anfang
+
+grep '^[B]' Standorte
+
+  
+7. Alle Zeilen mit einer 1 am Ende
+
+grep '[1]$' Standorte
+
+  
+8. Alle die im PLZ-Bereich 4567 liegen
+
+grep '\<4567\>*' Standorte
+grep '4567.' Standorte
+
+
+9. Alle die im PLZ Bereich 7 liegen
+
+grep '\<7' Standorte
+
+  
+10. Alle in denen kein Komma vorkommt
+
+grep -v , Standorte
+
+  
+11. Wieviele Zeilen liegen im PLZ Bereich 7 
+
+grep -c '\<7\>*' Standorte
+
+
+12. Fuegen Sie der Datei Standorte eine Leerzeile hinzu und finden sie Leerzeilen
+
+grep -c ^$ Standorte
+
+  
+13. Alle Zeilen mit “eine”, aber nur als ganzes Wort
+
+grep '\<eine\>' Standorte
+grep ' eine ' Standorte
+grep -w 'eine' Standorte
+
+  
+14. Zeige mit dem Befehl dmesg alle HDDs an
+
+dmesg | grep disk
+
+  
+15. Liste mit dem Befehl ps aux alle terminator Prozesse auf
+
+ps aux | grep terminator
