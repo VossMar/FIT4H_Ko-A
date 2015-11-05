@@ -1,0 +1,19 @@
+Befehlszeilen-Pipe
+	| kann für das Senden des Outputs eines Befehls zu einem anderen Befehl verwendet werden. Mehrere Befehle können verkettet werden.
+
+Ersten oder Letzten Zeilen der Ausgabe anzeigen (deafult = 10 Zeilen angezeigt)
+	head 5	- ersten 5 Zeilen angeteigt
+	tail 5	- letzten 5 Zeilen angezeigt
+	Bsp:
+		head /etc/sysctrl.conf	- zeigt ersten 10 Zeilen der .conf datei
+		ls /etc | head					- zeigt ersten 10 objekte des ordners /etc an
+
+Output-Zeilen nummerieren (numer lines)
+	nl	- nummeriert die Output-Zeilen
+
+STDIN (Standard Input)
+	Informationen - standatrmäßig mit Tastatur eingegeben
+STDOUT (Standard Output)
+	Fehlerfreier normaler Output einer Funktion (default im Screen angezeigt)
+STDERR (Standard Error)
+	Fehlermeldungen verursacht durch Befehle (default im Screen angezeigt)

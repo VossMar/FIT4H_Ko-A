@@ -25,3 +25,5 @@ Variablen
 				Bsp.: var_name = "etwas" #problematisch
 							var_name="etwas" #besser bis gut
 
+
+

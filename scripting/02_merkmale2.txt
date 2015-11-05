@@ -1,0 +1,19 @@
+Parameter beim aufruf der Datei übergeben
+	./Datei.sh Param Parmeter2
+		in der Variable $ wird alles, was den Befehlsaufruf betrifft gespeichert:
+		In diesem Fall:
+			$0 = ./Datei.sh
+			$1 => Param
+			$2=> Parameter2
+
+Zeichenketten aneinanderhängen
+	Variablen werden durch ein ${} besonders gekennzeichnet.
+		echo "Sriptname: ${0}, Param1: ${1}, Param2: ${2}"
+		aus der Variable $0 wird so ein ${0}
+
+Eingabeaufforderung mit anschließender Ausgabe
+	read Variablenname
+	echo $Variablenname
+
+	Mit Hinweis
+	read -p "Ihre Eingabe: " Variablenname

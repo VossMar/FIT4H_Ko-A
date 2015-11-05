@@ -1,0 +1,42 @@
+read -p "Geben Sie ein p ein: " eingabe
+if [[ $eingabe = 'p' ]]
+then
+	echo "Gut gemacht"
+elif [[ $eingabe = 'q' ]]
+	then
+		echo "Ein q wie cool!"
+else
+	echo "Du spacken, das war falsch"
+fi
+
+
+Bedingungen:
+STRING:	
+	[[ $bed ]]						#gibt true zurück wenn nicht leer
+	[[ $bed = "wert" ]]		#gibt true zurück wenn übereinstimmung
+
+ARITHMETISCH
+	if [[ $eingabe -lt 20 ]]		#überprüft ob $eingabe kleiner als 20 ist (lower than)
+	elif [[ $eingabe -eq 60 ]]	#überprüft ob $eingabe gleich 60 ist (equal)
+	elif [[ $eingabe -gt 40 ]]	#überprüft ob $eingabe größer als 40 ist (greater than)
+	elif [[ $eingabe -eq 99 ]]	#überprüft ob $eingabe ungleich 99 ist (nonequal)
+	fi													#if-Schleifen ende
+
+	while [[ $eingabe == "" ]]	#while-Schleife Syntax
+		do
+	done
+
+DATEI: (-e [exist] prüft ob der name im aktuellen Ordner existiert)
+	read -p "Geben Sie die zu findende Datei ein: " eingabe
+	if [[ -e $eingabe ]]
+		then
+			echo "Datei: ${eingabe} gefunden"
+	else
+		echo "Datei: ${eingabe} nicht gefunden. Wird neu angelegt!"
+		read -p "Soll die Datei neu angelegt werden?(y/n): " zust
+	fi
+	if [[ $zust = 'y' ]]
+		then
+			touch $eingabe
+			ls -l
+	fi

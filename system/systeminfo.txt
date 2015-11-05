@@ -1,0 +1,13 @@
+Hadwareinfos (sudo)
+	()arch								#gibt den Prozessor aus
+	()lscpu								#gibt Infos über die Hardware des Systems aus
+	()less /proc/cpuinfo	#gibt detalierte Infos über die Hardware des Systems aus
+	()lspci								#gibt Infos über PCI aus
+	()free -m							#gibt den Speicherstand aus (in Megabyte)
+	()fdisk -l 	/dev/sda	#gibt Infos über die erste Festplatte aus
+	()dmsg | less					#gibt Boot-Infos aus
+	/var/log						#Ordner mit Logdatein (system.log - alle Systeminfos geloggt)
+
+
+
+
