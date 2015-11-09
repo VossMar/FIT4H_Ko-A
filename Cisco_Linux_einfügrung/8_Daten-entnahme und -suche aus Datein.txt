@@ -2,11 +2,15 @@ Befehlszeilen-Pipe
 	| kann für das Senden des Outputs eines Befehls zu einem anderen Befehl verwendet werden. Mehrere Befehle können verkettet werden.
 
 Ersten oder Letzten Zeilen der Ausgabe anzeigen (deafult = 10 Zeilen angezeigt)
-	head 5	- ersten 5 Zeilen angeteigt
-	tail 5	- letzten 5 Zeilen angezeigt
+	head -5		- ersten 5 Zeilen angeteigt(auch "head -n 5" möglich)
+	tail -5		- letzten 5 Zeilen angezeigt
+	tail -n +22	- ab der Zeile 22 für 10 folgende Zeilen
+	tail -f 	- zeigt live veränderungen an (gut für admins bei log-files)
 	Bsp:
 		head /etc/sysctrl.conf	- zeigt ersten 10 Zeilen der .conf datei
-		ls /etc | head					- zeigt ersten 10 objekte des ordners /etc an
+		ls /etc | head			- zeigt ersten 10 objekte des ordners /etc an
+		nl /etc | tail -n +22	- zeigt die objekte 22-32 des ordners etc an
+		tail -f /var/log/mail.log 		-	startet die live überwachung des angeg. log-files 
 
 Output-Zeilen nummerieren (numer lines)
 	nl	- nummeriert die Output-Zeilen
@@ -17,3 +21,137 @@ STDOUT (Standard Output)
 	Fehlerfreier normaler Output einer Funktion (default im Screen angezeigt)
 STDERR (Standard Error)
 	Fehlermeldungen verursacht durch Befehle (default im Screen angezeigt)
+
+Weiter-/Umleitungen
+	#Umleiten der Ausgabe (STDOUT)
+		mit ">" kann man die ausgabe umleiten und ggf. Datein überschreiben
+		mit ">>" kann man die Ausgabe umleiten und ggf. bestehende Datein werden nicht überschrieben
+		Bsp:
+			echo "Line 1" > example.txt (Zeigt keine Ausgabe in der Kommandozeile)
+
+	#Umleiten der Fehler (STDERR)
+		mit "2>" können Fehlermeldungen umgeleitet werden (channel 2)
+		Bsp:
+			ls /wrongdir 2> error.txt
+
+	#Umleiten multibler Streams
+		mit "&>" können STDERR und STOUT Steams gleichzeitig zu einem Zielumgeleitet werden
+			Bsp:
+				ls /wrongdir /etc &> all.txt
+			STDERR-Meldungen werden vor dem STOUT in eine Datei geschrieben
+		mit der Kombination aus ">" und "2>" können die Meldungen in getrennte Datein geschrieben werden
+			Bsp:
+				ls /wrongdir /etc > output.txt 2> err.txt
+
+	#Umleiten der Eingabe (STDIN)
+		Bsp:
+			tr 'a-z' 'A-Z' 
+			(Alle Eingaben, nach Ausführung der Anweisung, in die Kommandozeile werden in Grobuchstaben ausgegeben)
+		mit "<" kann auf eine Datei über den davorstehenden Befehl umgeleitet und danach als STOUT ausgegeben werden
+		Bsp:
+			tr 'a-z' 'A-Z' < example.txt
+			(Die Datei wird vor dem STOUT mit dem Befehl bearbeitet und in Großbuchstaben ausgegeben)
+
+Such-Befehl
+	find [Startverzeichnis der Suche] [suchoptionsparapeter] [Suchargument(name)] [ergebnisverfahren(default=STOUT)]
+		# der Befehl sucht und findet Dateien im Dateisystem
+		<suchoptionenparameter> (es sind auch mehrere hintereinandergehängt möglich)
+			-name		-	für Dateien
+			-ls 		-	für Dateien mit mehr Infos
+			-size 10c	-	Dateifindung nach Größe [-size -+zahl+c/k/M/G (bytes/kilo-,/mega-,/gigabyes)("-" kleiner, "+" größer, nichts - exakte größe)]
+			-maxdepth 1	-	wie tief die Suche die unterordner einbezieht (1 sucht nur in dem aktuellen ordner, ohne unterordner)
+			-group user	-	gibt datein der angegeben gruppe aus
+			-iname 		-	wie -name, aber casesensetive (beachtet groß- und kleinschreibung)
+			-mmin 10	-	gibt Datein aus, die vor 10 Minuten bearbeitet wurden ("+" vor mehr als, "-" vor weniger als)
+			-type f 	-	gibt Datein aus, die dem Dateityp entsprechen (f - normale Datein)
+			-user bob	-	gibt datein aus die dem angegebenen User gehören
+		#damit keine Fehlermeldungen Aufgrund von fehlenden zugriffsberechtigungen erscheinen, wurde der "Pfad ins Leere" erschaffen
+		dorthin kann man diese umleiten 	2> /dev/null	als <ergebnisverfahren> anhängen
+		#Platzhalter:
+			? steht für ein Zeichen
+			* steht für beliebig viele Zeichen
+			[123] steht für ein Zeichen, das 1,2 oder 3 sein kann
+			[ab] steht für ein Zeichen, dass a oder b sein kann
+			[a-d] sthet für ein Zeichen , dass innerhalb der Range von a bis d sein kann
+		#Beispiele:
+			find datei?.txt
+				#sucht im aktuellen Verzeichnis nach einer Datei die mit <datei> beginnt, anschließend ein beliebiges Zeichen hat und am ende ein <.txt> hat
+
+			find verzeichnis -name datei1.txt
+				#sucht im Verzeichnis <verzeichnis> nach genau der Datei
+
+			find /etc/passwd passwd -print 2>/dev/null
+				# im Verzeichnis /etc wird nach einer Datei <passwd> gesucht. Die Fehlermeldungen werden nach /dev/null(Nirvana) geschickt, also nicht ausgegeben
+
+	cat (gut zum sichten kleinerer Datein)
+
+	#(Seite für Seite - Pager commands)
+	less
+		Durch das Dokument bewegen:
+			h 			-	help-Bildschirm anzeigen (Bewegungsanzeige)
+			Leertaste	-	Seite weiter
+			b 			-	Seite zurück
+			Enter 		-	Zeile weiter
+			q 			-	Exit
+			/			-	Suche ab aktueller Courser-Position starten (leere eingabezeile unten erscheint)
+			?			-	Suche vor aktueller Courser-Position starten (n - zur nächsten Übereinstimmung, N - zur vorherigen Übereinstimmung springen)
+
+	more (in jedem linux vorhanden - weniger umfangreich)
+		bewegungsoperatoren ähnlich wie less
+
+	sort
+		sotiert die Zeilen einer Datei nach dem Alpabeth
+		operatoren:
+			-t: 	-	trennt die Zeilen in Felder auf (: - trennt hier die felder)
+			-k2 	-	sotiert zeilen nach dem 2. feld (trennzeichen der felder durch ":" > -t:)
+			-n 		-	numerische sortierung
+			-r 		-	invertiert
+		Bsp:
+			sort -t: -k2 -k1 -k3n filename (sotiert erst Feld2, dann Feld1 und dann Feld3 numerisch)
+	
+	wc (Zeigt dateistatistiken an)
+		wc /etc/passwd /etc/passwd-
+			Gibt 3 Zeilen aus (für beide Dateien einzeln und zusammengefasst)
+			1. Stelle ist die Zeilenanzahl der Datei, 2. Anzahl der Wörter, 3. Anzahl an Bytes
+			-l 	-	zeigt nur die Zeilenanzahl an
+			-c 	-	zeigt nur die Bytes an
+			-w 	-	zeigt nur die Wörteranzahl an
+
+	cut
+		-d: 	-	trennt die Zeilen in Felder auf (: - trennt hier die felder/standartmäßig inst Tab das trennzeichen)
+		-f 		-	auswahl welche Felder angezeigt werden sollen (komma und bindestrich möglich, also 1,5-7 > zeile 1,5,6,7 werden angezeigt)
+		-c 		-	auswahl welche Zeichen angezeigt werden sollen (-c1-11,50- > die ersten 11 und ab 50 aufwärts werden pro zeile angezeigt)
+		Bsp:
+			cut -d: -f1,5-7 <datei>
+			ls -l | cut -c1-11,50-
+
+	grep
+		mit Hilfe dieses Befehls werden bestimmte Suchmuster in Dateien oder der Standardausgabe gefunden
+		-c 		-	gefundene zeilenanzahl ausgeben
+		-n 		-	gibt die originale zeilennummer mit aus
+		-v 		- 	alles ausgeben bis auf dei angegebene suchoption
+		-l 		-	list - grep -l linux /etc/* > listet datein auf, in denen linux vorkommt
+		-i 		-	grep -i linux /ect/* > listet Dateizeilen auf in denen "linux" vorkommt (groß/klein)
+		-w 		- 	Wort - zeilen mit  dem wort "linux" in dateien werden aufgelistet
+		-E 		-	erweitere optionen (mehrwortsuche -E 'bla|bli|blub'/ zahlensuche -E '[0-9]{3}'  3 stellige zahlen werden gesucht)
+	Beispiel:
+		lspci | grep VGA
+			#Von der Ausgabe der Hardwarekonfiguration (lspci) wird nach dem Suchmuster VGA gesucht
+		grep pan /etc/passwd
+			#in der Datei etc/passwd wird nach dem Suchmuster :pan gesucht 
+		grep '^[AS]' ~/Dokumente/Ko-A/aufgaben/MrOlympia.dat
+			#sucht am Anfang der Zeile (^) nach einem großem A oder S
+		grep '\<Coleman\>' ~/Dokumente/Ko-A/aufgaben/MrOlympia.dat 
+			#sucht nach dem dem ganzen Wort (Leerzeichen am Anfang und Ende)
+
+	Standartmäßige Ausdrücke
+		. 	-	Lücke für jedes beliebige Zeichen
+		[]	-	Zeichen in den Klammern sind oder Verknüpfungen
+		*	-	belibig oder keine Wiederholungen des vorherigen Zeichens (auch kein vorkommen des zeichens möglich)
+		^	-	nachstehendes wird nur am Anfang der Zeile gesucht
+		$	-	nachstehendes wird nur am Ende der Zeile gesucht
+		\	-	nachfolgendes Ausdruckszeichen wird als normales Zeichen mit einbezogen und mitgesucht
+
+	ASCII-Tabelle
+		man ascii
+
