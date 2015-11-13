@@ -1,0 +1,49 @@
+CPU
+	Die CPU ist die wichtigste Komponente im PC.
+	Erste 32bit Version 1978 von Intel (8086).
+	Erste 32/64bit Prozessoren seit 2000 auf dem Markt.
+	#Architektur herausfinden:	arch
+	#Mehr CPU-Infos ausgeben:	lscpu
+	#Ausführliche Details in:	/proc/cpuinfo
+	Flags Zeigen, welche Besonderheiten die CPU kann.
+
+Motherboard
+	Stellt Aufnahmen für CPU, Arbeitsspeicher und andere Hadware bereit, um diese zu Verbinden.
+	Beinhaltet das BIOS (Basic Input and Output System). Das SMBIOS ist der Standard, welcher die Datenstrukturen regelt und wie die Hardware kommuniziert.
+	#dmidecode gibt Informationen über das BIOS und Motherboard aus.
+	RAM
+		32bit bis 4GB
+		Virtual RAM - Freier Festplattenspeicher, der temporär als RAM-Speicher genuzt wird wenn andere Programme diesen brauchen.
+		Zum Anzeigen des RAM'seit	-	free 	-m für Rundung auf Megabyte, -g für Gigabyte
+	Perepherie
+		PCI, USB,...
+		Zum anzeigen aller angeschlossenen PCI-Komponenten
+			lspci		-nn 	Identifizierungsnummern für jede Komponente mit an 
+						-d <Identifizierungs:Nummer>	gibt details nur zur Komponente aus (auch mit -v,-vv oder -vvv angehängt)
+		Zum anzeigen aller angeschlossenen USB-Geräte
+			lsusb		-v (mehr Infos)
+
+Hardware Vermittlungsschicht
+	HAL(Hardware Abstraction Layer) ist die Schicht, die zwischen der Hardware und der Software vermittelt.
+	Zum Anzeigen der von der HAL festgestellten Geräte: 	lshal
+
+Festplattengeräte
+	Der Festplattencontroller ist meist im Motherboard integriert.
+	Festplatten werden in Partitionen unterteilt/geteilt. Diese stellt eine logische Einheit der Festplatte dar um sie wenn nötig in kleinere Einheiten zu unterteilen. 2 unterschiedliche partitionierugnsTypen MBR (MasterBootRecord), welches von Beginn an verwendet wird und GPT (GUID Partitioning Table) was seid 2000 verfügbar ist. Im alten Sprachgebrauch spricht man von einer "fixed disk", daher kommen die Befehle fdisk, cfdisk und sfdisk, welche für den Typ MBR funktionieren.
+		MBR 	-	von Beginn an 	-	Befehle: fdisk, cfdisk, sfdisk
+		GPT		-	seit 2000	-	Befehle: gdisk, cgdisk, sgdisk	-	lässt mehr Partitionen auf einer Festplatte zu
+			Befehle für beide:	parted, gparted
+	/dev		Ordner für Namensassoziierung 		unterteilung der: einzelnen Festplatten in a,b,c,... , Partitionen in 1,2,3,...
+	IDE 		hd genannt
+	SATA/USB 	sd genannt
+		Bsp: /dev/sda2			fdisk -l /dev/sda
+
+Optische Laufwerke
+	CD,DVD,BR
+	Oft verbunden über /media, ätere Distributionen über /mnt
+
+Anzeigegeräte
+	Meist direkt mit Motherboard verbunden über das video display device (GraKa). Diese müssen erst mit den jeweiligen Treibern für das System installiert werden, welche nicht immer für Linux vorhanden sind.
+	Die Verbindung geschieht fast imemr über ein Displaykabel. 4-Typen: VGA,DVI,HDMI,DisplayPort
+	Settings können über das /etc/X11/xorg.conf File manuell eingestellt werden.
+	
