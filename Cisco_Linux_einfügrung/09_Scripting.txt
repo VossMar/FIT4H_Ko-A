@@ -1,0 +1,92 @@
+Scripting ist dafür da, mit erstellten Script-Datein Kommandozeilenbefehle automatisch ausführen zu lassen.
+
+Erstellen einer Datei mit .sh-Endung
+	Bsp.-Inhalt: 	echo "Hello World!"
+
+Als Argument ausführen (kann mit belibig. Datei passieren)
+	sh test.sh
+
+Ausführbar machen (.sh als indikator für das erste sh ansehen)
+	chmod +x ./<Datei>.sh
+		#chmod ändert die Berechitgungen der Datei
+
+Ausführen
+	./test.sh
+
+Indikator für Interpreter in erster Zeile einer Ausführbaren-Datei
+	shebang (#!)
+	Bsp:	#!/bin/sh 	#!/bin/bash
+	(es gibt verschiedene Interpreter, deswegen sollte siese Angabe erfolgen)
+
+3 Topics:
+	Variablen: (zuweisungen ohne Leerzeichen, können fehler verursachen)
+		Bsp:
+			variable="inhalt"
+			var2=$variable
+			echo "bla $var2"
+		Eingabeaufforderung erzeugen und an variable übergeben
+			Bsp:
+				echo -n "What is your name?"
+				read Name
+				echo "Hello $Name"
+		Variablen beim Ausführen mit übergeben
+			$0	-	speichert ausgeführten Befehl
+			$1 	-	speichert 1.Argument (mit einem leerzeichen hinter den Befehl gehängt)
+			$2...	(jeweils mit weiteren leerzeichen getrennt angehängt) - beliebig erweiterbar
+
+	Conditionals/Bedingungsabfragen:
+		IF
+			if command; then
+				#do this (exit code 0)
+			elif command; then
+				#hihi that
+			else
+				#do that (exit code >0)
+			fi
+				Abfragevergleiche für if konditionen mit test:(sieht strings und zahlen unterschiedlich)
+					test -f /dev/ttySO		-		Die Datei <ttySO> existiert und ist eine reguläre Datei
+					! -f /dev/ttySO				-		Die Datei <ttySO> existiert nicht und ist eine reguläre Datei
+					-d /tmp								-		Das Verzeichnis <tmp> existiert
+					-x 'test.sh'					-		Die Datei <test.sh> existiert und ist ausführbar
+					w1 -eq w2							-		Wahr, wenn wert1 gleich wert2 (eqal)
+					w1 -ne w2							-		Wahr, wenn wert1 nicht gleich wert2 (not equal)
+					"a"="a"								-		Wahr, wenn zeichenkette gleich zeichenkette
+					"a"!="a"							-		Wahr, wenn "a" nicht gleich "a"
+					1 -eq 1 -o 2 -eq 2		-		-o ist ein logisches oder
+					1 -eq 1 -a 2 -eq 2		-		-a ist ein logische and
+					-gt 									-		greater than
+					(test kann auch mit "[-f /datei]" abgekürzt werden)
+
+		CASE
+			case "$var" in
+				hello|hi)
+					echo "Hello or hi to you"
+					;;
+				goodbye)
+					echo "bye bye my friend"
+					;;
+				*)
+					echo "can you repeat that?"
+			esac
+
+	Schleifen:
+		FOR
+				multivar="inh1 inh2 inh3"
+			for T in $multvar; do
+				echo "Doing sth to $T"
+			done
+
+			for Name in Sean jon Isaac; do
+				echo "Hello $Name"
+			done
+		
+		WHILE
+				i=0
+			while [ $i -lt 10]; do 		(less than)
+				echo $i
+				i=$(( $i + 1))
+			done
+			echo "Done counting"
+.
+			
+

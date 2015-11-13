@@ -179,6 +179,6 @@ Andere Lizenzen
 		# CC-BY-NC-SA	nicht für gewerbliche zwecke, muss unter gleicher lizenz weiter vertrieben werden	
 		# CC-BY-NC-ND	Verbreitung des Inhalts, der nicht geändert werden dart, für nicht gewerbliche Zwecke
 		# CC0		Keine Rechte vorbehalten
-		
+.		
 
 	

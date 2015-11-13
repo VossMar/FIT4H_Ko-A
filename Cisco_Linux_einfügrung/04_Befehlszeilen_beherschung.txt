@@ -43,5 +43,5 @@ history
 	# führt den 5. Befehl in der History aus
 !-5
 	# führt den 5.letzten Befehl aus
-
+.
 

@@ -56,3 +56,4 @@ Command
 
 Maintanance Cycle /Life Cycle
 	# gibt an wie lange eine Softwareversion ohne Upgrade auskommt
+.

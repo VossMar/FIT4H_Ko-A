@@ -26,7 +26,7 @@ locate
 
 whereis
 		sucht dateipfade, aber nur für kommando-und manual pages
-
+.
 
 
 

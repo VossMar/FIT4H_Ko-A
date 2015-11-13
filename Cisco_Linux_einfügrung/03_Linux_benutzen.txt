@@ -43,5 +43,5 @@ User-Sicherheit
 	# unterschiedliche Passwörter für Websiten
 	# Cookies werden zum Nachverfolgen von Web-Aktivitäten genutzt / können auch ausgeschaltet werden
 	# zum Tarnen der eigenen Identität beim Browsen wird der "TorBrowser"(The Onion Router) bevorzugt
-
+.
 
