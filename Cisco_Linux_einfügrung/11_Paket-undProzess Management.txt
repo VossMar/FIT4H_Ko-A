@@ -1,0 +1,125 @@
+Paket Management
+	Verwaltung von Software (install,update,remove)
+	Viele Systeme, Hauptgebräuchlich: 
+	#Debian Package Management:
+		Software Pakete enden mit ".deb"
+		dpkg		-	Verwaltung der .deb-Datein
+		apt-get		-	einfache automatisierte Verwaltung der Pakete, weitere nachfolgend gelistet
+		aptitude
+		synaptic
+		software-center
+
+		Hinzufügen neuer Pakete
+			sudo apt-get update				-	läd die aktuelle Softwareliste
+			sudo apt-cache search <keyword>	-	zum durchsuchen der liste
+			sudo apt-get install <packet>	-	installiert das Paket
+
+		Updaten von Paketen
+			sudo apt-get upgrade	-	updatet alle möglichen Pakete
+			update-manager			-	oberflächenbasiert durchkliggern
+
+		Löschen von Paketen
+			sudo apt-get remove <paket>		-	löscht das gewählte paket
+			sudo apt-get --purge <paket>	-	löscht das paket mit allen config-Dateien
+
+		Anzeigen der Installierten Pakete
+			dpkg -1					-	Listet die install. Pakete auf
+			dpkg -L <paket>			-	Zeigt Datein für das Paket an
+			dpkg -s <paket>			-	Zeigt Informationen zu dem Paket an
+			dpkg -S /path/to/file	-	Zeigt das Paket an, zu welchem die Datei gehört
+
+	#RPM Package Management (Red Hat):
+		Wird hauptsächlich von der Linux Sandard Base, ein Linux Foundation Projekt, verwendet. 
+		Benutzt die endung ".rpm" für Softwarepakete. Es verfolgt Abhängigkeiten zwischen den Paketen, ähnlich dem Debian System.
+		rpm 			-	Unterbau zum installieren, updaten und entfernen von Paketen (verwendet eine auf dem Pc vorhandene Datenbank)
+		yum 			-	einfache automatisierte Verwaltung der Pakete (verbunden mit repositories)
+		up2date			-	ähnlich wie yum
+		yumex			-	einfache Verwaltung der Pakete über eine grafische Oberfläche
+		gpk-application	-	ähnlich wie yumex
+
+		Hinzufügen neue Pakete
+			yum search <keyword>
+			yum install <package>
+
+		Updaten von Paketen
+			yum update <package>
+			yum update 				-	updatet alle Pakete
+			gpk-update-viewer 		- 	weist bei Verwendung auf mögliche Updates hin
+
+		Löschen von Paketen
+			yum remove <package>
+
+		Anzeigen der Installierten Pakete
+			rpm -qa					-	zeigt alle aktuell installierten Pakete an
+			rpm -ql <paket>			-	zeigt Datein für  das Paket an
+			rpm -qi <paket>			-	zeigt Informationen zu dem Paket an
+			rqm -qf /path/to/file	-	zeigt das zugehörige Paket der Datei an
+
+Root-User
+	su -root 	-	Wechsel zu Root User
+
+
+Prozesse beenden/pausieren
+	Beenden 	-	Strg+c
+	Pausieren 	-	Strg+z
+
+
+Linux Kernel
+	/proc	-	Pseudo Dateisystem für Infos über laufende Prozesse und andere Harware Infos
+	/dev	-	Einbindung der Laufwerke
+	/sys 	-	Informationen zu den Laufwerken
+	/sbin/init 		-	immer der erste Prozess nach dem Booten, deswegen auch die Prozess ID 1 	-	zu finden unter /proc/1
+	/proc/cmdline	-	beinhaltet infos, welche beim kernelstart enstanden sind
+	/proc/meminfo	-	Informationen über den Speicher, der vom Kernel gebraucht wird
+	/proc/modules	-	liste von Bauteilen, die aktuell im Kernel geladen sind
+
+
+Prozess Hirachie
+	Prozesse die andere Prozesse werden "parent process" und der gestartete "child process" genannt
+	Startender Prozesse bekommen eine aufsteigende Prozess ID (PID) zugewiesen.
+	Ein "parent process" wird dann als PPID nummeriert.
+	/proc/sys/kernel/pid_max 	-	anzeigen und bearbeiten der miximalen PID Anzahl.
+	Maximale PID erreicht, werden wieder freie niedrige Nummern genommen.
+	pstree	-	lässt die aktiven Prozessverzweigungen grafisch darstellen
+
+
+ps (Process Command)
+	ps 				-	zum anzeigen der aktiven Komandozeilen-Prozesse
+	ps --forest 	-	werden in einem Baum dargestellt
+	ps aux			-	anzeigen alle Prozesse in einer Liste 
+	ps -ef 			-	ähnlich aux, mit weniger infos
+	ps -e | grep firefox 	-	filtern der prozessliste nach firefox
+
+top Befehl
+	top 				-	zeigt eine live-Liste der laufenden Prozesse sortiert nach der CPU-auslastung und die Systemauslastung an
+		k 				-	(kill) erwartet anschließende Eingabe der PID
+		r 				-	(renice) erwartet anschließende Angabe de PID (verringert die Priorität des Przesses) und einen Prioritästwert zwischen -20 und 19
+		uptime			-	zeigt Auslastung des Systems (Zeit/On-Time/Benutzer/[Auslastung der Letzten/ Letzten 5/ Letzten 15 Minuten] in Kommazahlen als %)
+		/proc/loadavg	-	Datei auf die sich uptime bezieht (auch manuell aufrufbar)
+
+free Befehl
+	free 		-	zeigt den aktuellen Speicherstatus an
+	free -s x	-	aktuallisiert die Anzeige des aktuellen Speicherstatus alle x Sekunden
+	-m /-g 		-	zeigt die Daten in Mega- / Gigabyte an
+
+Log-Dateien
+	Dateien, die hilfreich zur Datensicherung oder Fehlererkennugn sind.
+	Werden entweder durch Programem selbst geloggt, oder durch extra Hintergrundprogramme.
+		Bsp.:	Distributionsabhängig
+				syslogd, klogd
+				rsyslogd 			-	RedHat/Centros
+				systemd-journald	-	Fedora
+	/var/log 	-	Speicherort-Standart
+	Beispiel-Log-Datein:
+		boot.log 	-	Meldungen beim Start des Systems
+		cron 		-	Meldungen vom Crond deamon(Hintergrundprogramm)
+		dmesg 		-	Meldungen vom kernel während des Boots
+		maillog 	-	Meldungen vom mail-Programm für Sendende/Empfangene Mails
+		messages 	-	Meldungen vom Kernel und Programmen, die sonst nirgens hingehören
+		secure		-	Meldungen von Prozessen, die eine Anmeldung erfordern
+		Xorg.0.log 	-	Meldungen vom X windws (GUI) Server
+	Alte Datein werden von neuen überschrieben oder mit Datum fortgeführt
+
+dmesg-Befehl
+	dmesg 	-	gibt so bis zu 512kb Meldungen des Kernel-Ring-Buffers aus
+	Wird gerne geflitert mit grep oder less
