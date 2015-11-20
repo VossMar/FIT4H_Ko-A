@@ -1,0 +1,50 @@
+Grundbegriffe:
+		Host 				# hauptsächlich ein Computer, der mit anderen Geräten komuniziert
+		Network 		# Zusammenschluss von 2 oder mehr Hosts, die miteinander Kommunizieren können (Lan oder WLAN)
+		Internet 		# Öffentlich zugängliches Network
+		Wi-Fi 			# WLAN
+		Server 			# Host, der andere Hosts oder Clients mit Services versorgt 
+		Service 		# Bsp.: Zur verfügung stellen von Websiten ist ein Service
+		Client 			# Host, der auf Server zugreift. (Als User im Netz surfen)
+		Router 			# Auch Gateway genannt; Gerät, welches Hosts mit anderen Netzwerken verbindet
+
+Netzwerk-Funktionen Grundbegriffe:
+		Netzwerk Paket 		# in Pakete verpackte Kommunikation die zwischen Hosts verschickt wird
+		IP Adresse 				# eine Einzigartige Nummer, die einem Host im Netzwerk zugewiesen wird.
+		Netzwerk Maske 		# Nummernsystem, welches die IP's in einzelne Netze unterteilt
+		Hostname 					# Name zum leichteren Verständnis für Menschen(wird von dem Gerät automatisch in die IP gewandelt)
+		DHCP 							# Kann Hosts Hostnames,IP's und andere Netzinfos zuweisen
+		DNS 							# Server, der die Zuweisung der IP-zu-Hostname-Übersetzung beherbergt
+		Ethernet 					# Physicalischer Aufbau zum Verbinden von Hosts mit einem Netzwerk durch Kabel.
+		TCP/IP 						# Sammlung von Protokollen die einen Standart für die Netzkommunikation vorgeben
+
+
+IP-Adresse
+ 	blka
+
+Netzwerkgeräte-Konfiguration
+
+	GUI verwenden
+
+	Konfigurations-Datein
+
+	IPv4-Konfiguration
+
+	IPv6-Konfiguration
+
+	DNS
+
+	zusätzliche Config-Datein
+
+	Netzwerk-Neustart
+
+
+Netzwerk Werkzeuge
+	ifconfig
+	route
+	ping
+	netstat
+	dig
+	host
+	ssh
+	RSA Key Fingerprint

@@ -1,0 +1,42 @@
+Aufgaben:
+	Listung aller Installationen
+	Installation von Paketen
+	Aktualisierungen
+	Deinstallation von Paketen
+
+Pakete:
+	Die Linux-Softwareverwaltung ist in Pakete unterteilt. Ein Paket enthält die Quellen, die zur Lauffähigkeit einer Software notwendig sind.
+
+Quellen und Komponenten:
+	Die Quellen an denen das jeweilige System die Pakete sucht, sind in der Datei:	
+		/etc/apt/sources.list
+
+	Komponenten:
+		main				#Opensource-Software von Ubuntu-Team verwaltet
+		restricted	#nicht Opensource-Software (Grafiktreiber) vom Ubuntu-Team verwaltet
+		universe		#Opensource von der Community verwaltet
+		multiverse	#Pakete, die nicht unter der Opensource-Lizenz stehen
+
+Neue Paketquelle hinzufügen:
+	sudo add-apt-repository ppa:webupd8team/sublime-text-2		#bindet neues Paket/Pakete ein (Sublime2)
+
+Aktualisierung eines Systems:
+	sudo apt-get update				#aktualisiert die Liste der Software und vergleicht die Versionsstände (vor Installation)
+	sudo apt-get upgrade			#aktualisiert das System; installiert die neuen Versionen
+	sudo apt-get dist-uprgade #aktualisiert zusätzlich den Kernel
+
+De-/Installation:
+	sudo apt-get install <name des Pakets>	#installiert die Software
+	sudo apt-get remove <name des Pakets>		#deinstalliert die Software
+
+Informationen zu Paketen
+dpkg 										#Informationen zu installierten Paketen
+
+Manuell
+wget http:asfpgnpng			#manuelles herunterladen eines Paketes
+
+
+Bsp.-Installation:
+	add-apt-repository
+	apt-get update
+	apt-get install

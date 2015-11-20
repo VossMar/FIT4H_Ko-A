@@ -1,3 +1,9 @@
+Kernel-/OS-infos
+	uname -r 							#gibt die Kernelversion aus
+	lsb_release						#git den Distributionsstand an
+	Strg+Alt+F1						#wechselt auf die Terminaloberfläche 1 (F2 auf die 2.)
+	Strg+Alt+F7						#wechselt auf die Grafische oberfläche
+
 Hadwareinfos (sudo)
 	()arch								#gibt den Prozessor aus
 	()lscpu								#gibt Infos über die Hardware des Systems aus
@@ -6,7 +12,32 @@ Hadwareinfos (sudo)
 	()free -m							#gibt den Speicherstand aus (in Megabyte)
 	()fdisk -l 	/dev/sda	#gibt Infos über die erste Festplatte aus
 	()dmsg | less					#gibt Boot-Infos aus
-	/var/log						#Ordner mit Logdatein (system.log - alle Systeminfos geloggt)
+	/var/log							#Ordner mit Logdatein (	system.log 	- alle Systeminfos geloggt
+																								syslog 			-
+																								bootlog
+																								)
+
+	tail -f /var/log/syslog		# livemitschnitt der syslog-Datei
+
+Runlevel
+		runlevel 			# zeigt aktuelles Runlevel an
+		sudo init x 	#	ändert die nummer des runlevels
+			#Runlevel Linux:
+				0		-		Herunterfahren
+				S 	-		Singeluser (niedrigster Systemzusatand; für Wartungsarbeiten)
+				1 	- 	Lokaler Einzelnutzerbetrieb ohne Netzresourcen				
+				2		-		Lokaler Mehrbenutzerbetrieb ohne Netzrecourcen
+				3		- 	Netzbetrieb (netzrecourcen verfügbar; keine grafische Oberfläche)
+				5		- 	Wie 3; mit grafischer Oberfläche
+				4 	-		normal nicht definiert
+				6 	-		Reboot
+
+Services
+	sudo service x [option]
+									start 			#	startet den service x
+									restart			#	startet den service x neu
+									status 			# zeigt den Status von x an
+
 
 
 

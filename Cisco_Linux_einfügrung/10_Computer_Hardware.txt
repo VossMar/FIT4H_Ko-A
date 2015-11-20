@@ -18,32 +18,45 @@ Motherboard
 	Perepherie
 		PCI, USB,...
 		Zum anzeigen aller angeschlossenen PCI-Komponenten
-			lspci		-nn 	Identifizierungsnummern für jede Komponente mit an 
-						-d <Identifizierungs:Nummer>	gibt details nur zur Komponente aus (auch mit -v,-vv oder -vvv angehängt)
+			lspci		
+						-nn 													# Identifizierungsnummern für jede Komponente mit an 
+						-d <Identifizierungs:Nummer>	# gibt details nur zur Komponente aus (auch mit -v,-vv oder -vvv angehängt)
 		Zum anzeigen aller angeschlossenen USB-Geräte
-			lsusb		-v (mehr Infos)
+			lsusb		
+						-v 	# (mehr Infos)
 
 Hardware Vermittlungsschicht
 	HAL(Hardware Abstraction Layer) ist die Schicht, die zwischen der Hardware und der Software vermittelt.
 	Zum Anzeigen der von der HAL festgestellten Geräte: 	lshal
 
+
 Festplattengeräte
 	Der Festplattencontroller ist meist im Motherboard integriert.
 	Festplatten werden in Partitionen unterteilt/geteilt. Diese stellt eine logische Einheit der Festplatte dar um sie wenn nötig in kleinere Einheiten zu unterteilen. 2 unterschiedliche partitionierugnsTypen MBR (MasterBootRecord), welches von Beginn an verwendet wird und GPT (GUID Partitioning Table) was seid 2000 verfügbar ist. Im alten Sprachgebrauch spricht man von einer "fixed disk", daher kommen die Befehle fdisk, cfdisk und sfdisk, welche für den Typ MBR funktionieren.
+
 		MBR 	-	von Beginn an 	-	Befehle: fdisk, cfdisk, sfdisk
 		GPT		-	seit 2000	-	Befehle: gdisk, cgdisk, sgdisk	-	lässt mehr Partitionen auf einer Festplatte zu
 			Befehle für beide:	parted, gparted
+
 	/dev		Ordner für Namensassoziierung 		unterteilung der: einzelnen Festplatten in a,b,c,... , Partitionen in 1,2,3,...
 	IDE 		hd genannt
 	SATA/USB 	sd genannt
 		Bsp: /dev/sda2			fdisk -l /dev/sda
 
+	lsblk 										# gibt Baumförmige übersicht über die Festplatten
+	parted /dev/sda print 		#	zeigt die Partitionen der sda-Platte an
+	df -h 										# gibt Informationen zur Plattenauslastung
+	du -hs /home/pan/*				#	Infos zur Dateigröße eigener Datein
+	dd if=/home/pan of=/fsd		# Kopiert die Quelle an das ziel (zum Kopieren kompletter Home-verzechnisse oder Partitionen)
+
+
 Optische Laufwerke
 	CD,DVD,BR
 	Oft verbunden über /media, ätere Distributionen über /mnt
 
+
 Anzeigegeräte
 	Meist direkt mit Motherboard verbunden über das video display device (GraKa). Diese müssen erst mit den jeweiligen Treibern für das System installiert werden, welche nicht immer für Linux vorhanden sind.
 	Die Verbindung geschieht fast imemr über ein Displaykabel. 4-Typen: VGA,DVI,HDMI,DisplayPort
-	Settings können über das /etc/X11/xorg.conf File manuell eingestellt werden.
+	/etc/X11/xorg.conf 	# Datei zum manuellen einstellen der Grafik-Settings.
 	
