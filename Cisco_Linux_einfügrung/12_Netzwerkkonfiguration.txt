@@ -20,31 +20,64 @@ Netzwerk-Funktionen Grundbegriffe:
 
 
 IP-Adresse
- 	blka
+	Hauptsächlich zur Identifizierung von Hosts
+ 	Zwei verschiedene Typen von Ip-Adressen:
+ 		IPv4 	# 4 Nummern a 8bit (jeweils zwischen 0 und 255) mit Punkten getrennt [32bit]. Limitiert die Ip's auf 4,3 Milliarden.
+ 		IPv6	# 182-bit Adresse (3,4*10^128 Möglichkeiten) und mehrere zusätzliche Funktionen:
+ 						# höhere Geschwindigkeit, größeres Packetmanagement, effektivere Datentransportation
+ 		Gründe für das moentane bestehenbleiben von IPv4:
+ 			# NAT (Net Address Translation)	-	Zusammenfassung mehrerer Hostnamen auf einer IP.  System müsste mit überfrührt werden
+ 			# Porting probleme	-	Nicht alle Geräte unterstützen zur Zeit IPv6
+
 
 Netzwerkgeräte-Konfiguration
+ # Kabellos oder Kabelgebunden?
+ # DHCP oder Statische IP?
 
-	GUI verwenden
+	GUI verwenden (Grafical User Interface)
+		# Die meisten Interfaces wenden die eingestellten Einstellungen nach dem Speichern sofort an.
+		# Andernfalls 'service networking restart'
 
 	Konfigurations-Datein
+		# Falls kein Grafisces-Interface vorhanden, kann man in den Konfigurations-Datein die Einstellugnen vornehmen.
+		# Folgende beispiele für Ubuntu:
+			/etc/network/interfaces 	-	für Interfacekonfiguration
+			/etc/resolve.conf 			-	für DNSkonfiguration
 
-	IPv4-Konfiguration
-
-	IPv6-Konfiguration
-
-	DNS
-
-	zusätzliche Config-Datein
-
-	Netzwerk-Neustart
+		zusätzliche Config-Datein
+			/etc/hosts 					-	Umleitungspfade
 
 
 Netzwerk Werkzeuge
 	ifconfig
+		# zeigt Infos zu Netzwerkadaptern an (lo - Device ist das loopback-Device "Senden von Daten an sich selbst")
+
 	route
+		# zeigt  die Routen der Netzwerkkonfiguation an
+			-n 	-	zeigt nur IP-Adressen an
+
 	ping
+		# prüfung der Erreichbarkeit anderer Netzwerkgeräte 
+			-c 	-	zur limitation der Ping-Anzahl
+
 	netstat
+		# kann viele Netzwerkinformationen anzeigen
+			-i 		-	zeigt den Netzwerktraffic an
+			-r 		-	zeigt die Routen an, ähnlich dem route Befehl
+			-tln 	-	steht für TCP zuhören un portnummern anzeigen(:::22 in der Anzeige meint, dass der tcp-Port 22 auf listening steht, also offen ist)
+			-tl 	-	wie tln , nur das anstatt portnummern die namen angezeigt werden
+
 	dig
+		# zum testen der DNS-Servers (hinter den dig-Befehl die webadresse hinterhängen)
+
 	host
+		# kann webadressen in IP's umwandeln und umgekehrt und weiteres mehr.
+
 	ssh
-	RSA Key Fingerprint
+		# erlaubt einem sich mit einer anderen Maschiene über das Netzwerk zu verbinden (mithilfe des Namens oder der IP)
+		RSA Key Fingerprint
+			# speichert bei Bestätigung die Benutzeranmeldung ab, so dass bei Wiederanmeldung von dem selben Gerät, der Benutzername automatisch erscheint.
+			# speicherung der Benutzer unter ~/.ssh/known_hosts
+		exit
+			# zum Ausloggen aus dem verbundenem System  
+
