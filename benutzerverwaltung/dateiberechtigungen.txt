@@ -1,0 +1,28 @@
+Dateien und Ordner haben Besitzer.
+	drwxr-xr-x 2 root Gruppe1  1096 Nov 26 14:39 ordner2
+	# In diesem Beispiel ist root der Besitzer und die Gruppe1 die Besitzrechte an dem Ordner
+
+Ändern des Besitzers:
+	sudo crown pan:Gruppe2 ordner1
+	# Nach diesem Befehl hat der User pan und die Gruppe2 alle Besitzerrechte an dem Ordner
+
+Berechtigungen:
+	Die 1 + 9 Zeichen am Anfang der Dateicharaktersierung nach dem ls -l geben Auskunft über die vorhandenen Berechtigungen
+		drwxr-xr-x 2 root root  4096 Nov 26 14:39 ordner2
+		# In diesem Fall:
+				user root: rwx
+				Gruppe root: r-x
+				Others: r-x
+				(r-read,w-write,x-ausführen)
+
+Die Berechtigungen sind intern in Zweierpotenzen organisiert.
+	4 - lesen
+	2 - schreiben
+	1 - ausführen
+Die Ziffer 3 entspräche dann der Berechtigung ausführen und Schreiben
+
+Ändern der Berechtigungen:
+	sudo chmod 754 gruppe1
+		Besitzer: Schreiben, Lesen, Ausführen
+		Gruppe: Lesen, Ausführen
+		Others: Lesen
