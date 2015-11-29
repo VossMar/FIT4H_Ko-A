@@ -1,0 +1,86 @@
+Infodateien
+	/etc/passwd
+		# Infos über Benutzer im System
+		# Aufschlüsselung der Userinfos:
+			name : password_placeholder : user_id : prim.group_id : comment : home_directory : shell
+			name	- Accountname (root-Account hat User_id 0)	
+			pass.ph - Passwörter zu finden unter /etc/shadow
+			user_id - User_ID vom Account (UID), wird hauptsächlich vom System benutzt. UID kleiner 500 (machmal 1000) meißt für System Accounts,für Services. 
+			p.gr_id - Goup_ID, die mit dem Account verknüpft ist (GID).  
+			comm.	- kann jede Benutzerinfo enthalten (GECOS) General,Electric,Comprehensive,Operating,System. # chfn - bearbeiten	# finger - infos anzeigen 
+			h_dir 	- Zeigt Pfad zum Homeverzeichnis des Accounts.
+			shell 	- Zeigt den Pfad der Standart-Shell der Accounts an. (Systemaccounts haben hier einen verweis zum "nologin")
+	/etc/shadow
+		# Infos zu den Passwörtern der Benutzer
+		# Aufschlüsselung der Passwortinfos:
+			name : passwort : letzte Änderung : min : max : warn : exprie : reserved
+			name 	- Accountname
+			password- Verschlüsseltes Passwort (Systemaccounts haben einen * an dieser stelle, da sie nicht zum normalen einloggen genutzt werden)
+			las.cha.- Zeigt Datum der letzten Passwortänderung ( in Tagen seit 1.1.1970)
+			min 	- Mindestalter für Passwort. Nach soviel Tagen kann es erst geändert werden.
+			max 	- Maximalalter für Passwort. Nach soviel Tagen muss es geändert werden.
+			warn 	- Warnug vor ablauf des Passworts. Soviele Tage vor ablauf wird bei Anmeldung 
+			expire 	- Zeigt Datum (Tage nach dem 1.1.1970), wann der Account abläuft.(Wird dann deaktiviert)
+			reserved- Reserviertes Feld für Funktionen in der Zukunft
+		# Zum filtern einfach grep'en oder getent'en:
+			sudo grep root /etc/shadow
+			sudo gtent shadow root 		- sucht die datein und kann auch netzwerkbezogene Dateien finden
+
+Gruppen
+	# Ein User kann heutzutage mehr als 65000Gruppen angehören
+	# können eigene Zugriffsrechte Besitzen
+	/etc/group
+		# hier sind alle Gruppen zu finden mit dazugehörigen Infos
+		# Aufschlüsselung der Gruppeninfos:
+			group_name : password_placeholder : GID : user_list
+			password_placeholder 	-	Passwörter zu finden unter /etc/gshadow
+			user_list 				-	Zeigt User an, die zusätzlich zur Primären Gruppe in weiteren Gruppen sind
+
+Login Informationen
+	id [option]
+		username 	# Zeigt Informationen zum gewählten user, oder bei mitgabe keines Namens, Informationen zum eigenen Nutzer
+		-g 			# Zeigt die GID der Primären Gruppe (Beim Erstellen von Dokumenten wird der Besitz vorrangig mit der primären GID gekennzeichnet)
+		-G 			# Zeigt alle GID des Nutzers an
+
+Besitz einer Datei ändern
+	chgrp [option] [GruppenName] [Datei]
+		# Nur Mitglieder der akuell besitzenden Gruppe können den Besitz ändern und auch nur einer Gruppe zuschreiben, in der sie selbst Mitglied sind.
+		-R 	# Kann anstatt Dateien ganze Ordner den Besizt verändern
+	chown
+		# ist nur vom root-User zu benutzen
+
+Benuzerwechsel der shell
+	su 	# wird benutzt um die shell als ein anderer User laufen zu lassen (nur UID & co ändert sich)
+		-l 	# (login) Der user wird wirklich eingeloggt, nicht nur die UID geändert
+		# zum verlassen "exit" eingeben
+
+Erweiterte Befehlsgewalt
+	# bei Installation wird ein Haupt-User bestimmt, der mit einer "sudo eingabe" vor einem Befehl, sich root-Userrechte verschaffen kann
+	# fordert Passworteingabe der Benutzerpassworts (zwischenspeicher von 5 Minuten)
+	# Befehlsausführugn über sudo wird im log-File gespeichert
+	-u 	# ermöglicht Ausführung des Befehls, nicht nur als root-User
+	# kann nachträglich eingerichtet werden((nur mit root-Rechten):
+		visudo (öffnet die /etc/sudoers)
+			# Eintrag ähnlich "root    ALL=(ALL) ALL" wie der root user darf auf allen systemen als alle Benutzer alle anwendungen ausführen
+
+Wer ist eingeloggt
+	who
+		# zeigt, wer aktuell eingeloggt ist, worüber und seit wann.
+		-b 	# zeigt, wann das system das letzte mal gebootet wurde
+		-r 	# zeigt, seit wann das Run-Level aktiv ist
+
+Systemstatus zusammengefasst
+	w
+		# Der w-Command zeigt eine grob zusammengefassten Systemstatus an
+		# Fasst den uptime-Befehl und eine verbesserte Version des  who-Befehls zusammen
+			Benutzer 	# Eingeloggter Benutzer
+			TTY			# benutztes Terminal
+			Von 		# von wo aus der User angemeldet ist
+			Anmeld@  	# ab wann angemeldet
+			IDLE 		# üntätig, seit wann der letzte befehl tätig war
+			JCPU 		# Prozesslaufzeit aller Prozesse seti Boot
+			PCPU 		# Prozesslaufzeit des aktuellen Prozesses
+			WHAT 		# Aktueller Prozess
+
+
+	

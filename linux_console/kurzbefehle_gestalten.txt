@@ -1,0 +1,5 @@
+Datei ".bash_aliases" im Homeordner erstellen.
+
+Zuweisungen sehen wiefolgt aus:
+Bsp.:
+		alias gg='cd Dokumente/gg'
