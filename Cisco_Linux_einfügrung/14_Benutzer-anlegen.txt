@@ -1,0 +1,89 @@
+Neue Benutzer können hinzugefügt werden, indem man manuell in der shadow und in der passwd den User hinzufügt. (Nicht gebräuchlich)
+Einige Distributionen erstellen bei der Benutzeresrtellung automatisch eine private UserGruppe (UPG), in der Nur der User Mitglied ist.
+Erstellung der Gruppen vor den Usern ist sinnvoll, da die User bei erstellung gleich den Gruppen zugeordnet werden können und kein weiterer Schritt Notwendig ist.
+
+Gruppe erstellen
+	goupadd [option] [Gruppenname]
+		# erstellt automatisch eine neue Gruppe mit gewähltem Namen und nächst höhere verfügbarer GID
+		-g [GID] 	# die -g Option lässt eine manuelle vergabe der GID zu
+		-r 			# ermöglicht automatische vergabe der GID unter der ersten zulässigen GID für normal User, also im Systemreservierten Bereich
+		# Gruppennamen sollten aus Kompatibilitätsgründen mit einem "_" oder Kleinbuchstaben anfangen und am besten nciht länger als 16 Zeichen sein.
+		# am Ende des Gruppennamens sollte kein "-" stehen
+
+Gruppe bearbeiten
+	groupmod [option]
+		-n [Name_neu] [Name_alt] 	# zum ändern der Gruppennamens
+		-g [GID_Neu] [Name]			# ändert  die GID der Gruppe. !!Dateien werden nicht mit geändert. Diese sind nun nur einer GID zugeordnet und keinem Namen mehr.
+									# Diese werden orphaned Datein (verwaist) genannt.
+										find / -nogroup 	# findet verwaiste Datein
+
+Gruppe löschen
+	groupdel [Gruppenname]
+		# löscht die angegebene Gruppe, wenn kein User diesse als Primäre Gruppe angegeben hat.
+
+User anlegen
+	useradd [optionen] [name]
+		# useradd zieht automatisch voreingestellte Werte aus der /etc/default/useradd Datei. 
+			-D 			# zeigt Voreinstellungen an. Können  mit angehängten Optionsparametern an diese Option dauerhaft geändert werden
+			-u [UID]	# lässt die vergabe einer selbst gewählten UID zu
+			-g [GID/Name]	# lässt die Vergabe einer primären Gruppe zu.	 	Deafult unter GROUP= zu finden
+			-G [GID/Name]	# lässt die Vergabe von sekundären Gruppen zu 		Default(nicht im File zu finden)
+			-b [Path]	# lässt Vergabe eines anderen Verzeichnisses zu, in welchem ein Ordner mit dem eigenem Namen angelegt wird.	Default unter HOME= zu finden 
+			-d [Path]	# lässt die Vergabe eines Verzeichnisses zu, welches das Home-Verzeichnis darstellt.
+			-m 			# Gibt an, dass das Home-Verzeichnis erstellt werden soll, falls im default nicht als Standard (wird immer benutzt wenn -k genutzt werden soll
+			-M 			# Gibt an, dass kein Home-Verzeichnis erstellt wird
+			-f [days] 	# lässt die Vergabe von Tagen zu nach dem das Passwort bei nicht Benutzung erlischt. 	Default oft auf INACTIVE= -1, d.H. die Option inaktiv
+			-e [date]	# lässt die Vergabe eines Ablaufdatums für den User zu. 		Default nicht gesetzt, zu finden unter EXPIRE=
+			-s [Path]	# lässt die Vergabe einer anderen Shell zu. 		Default zu finden unter SHELL=, meist /bin/bash
+			-k [Path] 	# lässt die Vergabe eines Alternativen Ordners zu, dessen Inhalt in das Homeverz. des Users Kopiert wird. 	Default unter SKEL= /etc/skel
+			-c [Komm]	# lässt die Eingabe eines Kommentars zu, welches in manchen Distrib. bei Anmeldung anstatt des Namens angezeigt wird
+		# useradd zieht automatisch Werte der /etc/login.defs heran. (muss manuell mit einem Editor bearbeitet werden)
+			MAIL_DIR 			# Gibt den Pfad des mail spool files an, welches den Header usw. der Mail enthält
+			PASS_MAX_DAYS		# Gibt die maximale Passwort-Lebensdauer an
+			PASS_MIN_DAYS		# Gibt die minimale Passwort-Lebensdauer an welche ein Passwort bestehen muss, bevor es geändert werden kann
+			PASS_MIN_LEN		# Gibt die minimale Passwortlänge an
+			PASS_WARN_AGE		# Gibt dieTage an, ab wann gewarnt wird, dass das Passwort abläuft
+			UID_MIN			  	# Gibt die UID an, ab welcher normale User benutzen können
+			UID_MAX				# Gibt die UID an, welche UID maximal benutzt werden kann. Oft aus kompatib. auf 60000
+			GID_MIN				# Gibt die GID an, ab welcher normale Gruppen benutzt werden können
+			GID_MAX				# Gibt die GID an, welche GID maximal benutzt werden kann. Oft auf komp. auf 60000
+			CREATE_HOME			# Gibt yes oder no an, was bestimmt ob ein Homeverzeichnis für den User erstellt wird oder nicht.
+			UMASK           	# Gibt die Zugriffsrechte für das Homeverzeichnis an. 3-stellige zahlenkombi. Zu dieser weiter Unten mehr.
+			USERGROUPS_ENAB 	# Gibt an, ob bei Usererstellung der User eine eigene Private Gruppe bekommt [yes/no]
+			ENCRYPT_METHOD 		# Gibt an, welche Verschlüsselungsmethode für das Passwort gewählt wird. Greift bei Benutzung vor der nächsten Zeile. (SHA512)
+			MD5_CRYPT_ENAB 		# Gibt an, ob die MD5 Verschlüsselung für die Passwörter benutzt werden. 
+
+Passwort setzen/ändern
+	passwd [opt. Username]
+		# Der Admin kann mit Angabe eines Username das Passwort für diesen setzen oder ändern, wenn er das aktuelle Passwort kennt
+
+Passwort Management
+	chage [option] [opt.User]
+		-l 			# Accountinfos über das Passwort
+		-d [date] 	# Tag der letzten Passwortänderung setzten
+		-E [date]	# Setzt das Ablaufdatum des Accounts
+		-h 			# Zeigt die Hilfe
+		-I [days]	# Setzt die Tage der inaktivität, nach denen des Passwort verfällt
+		-m [days]	# Setzt die minimum-Tage bevor das PW geändert werden kann
+		-M [days]	# Setzt die Lebensdauer des Passworts
+		-W [days]	# Warntage, bevor das Passwort abläuft
+
+User ändern
+	usermod [option] [user]
+		-c [komm]	# ändert das Kommentarfeld
+		-d [Path]	# ändert das Home-Verzeichnis
+		-e [date]	# ändert das Ablaufdatum des Users
+		-f [days]	# ändert die inaktivitätstage für accountdeaktivierung
+		-g [group] 	# ändert die Primäre gruppe des Users
+		-G [GName]	# fügt Gruppe der liste der sekundären Gruppen hinzu
+		-a [group]	# fügt den user zu einer sekundären Gruppe hinzu
+		-h 			# öffnet die Hilfe-Seite
+		-I [name]	# ändert den Login-Namen des Users
+		-L 			# sperrt den Account
+		-s [Path]	# ändert die Login-shell des Accounts
+		-u [new_UID]# ändert die UID des Users
+		-U 			# entsperrt den Account
+
+User löschen
+	userdel [option] [Udername/UID]
+		-r  	# entfernt das Home-Verzeichnis des Users

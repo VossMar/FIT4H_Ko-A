@@ -1,6 +1,7 @@
 Infodateien
 	/etc/passwd
 		# Infos über Benutzer im System
+		# kann mit dem "getent"-Befehl aufgerufen werdn,(keine ahnung wie)
 		# Aufschlüsselung der Userinfos:
 			name : password_placeholder : user_id : prim.group_id : comment : home_directory : shell
 			name	- Accountname (root-Account hat User_id 0)	
