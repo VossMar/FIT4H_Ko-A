@@ -9,6 +9,7 @@ ls
  listet den inhalt des ordners auf in reihenfolge nach besitzer
  -a / auch versteckte
  -l / erweiterte infos
+ -i / zeigt inode für Datein an (einzigartige ID einer Datei auf dem System)
  -lh / erweiterte infos in lesbaren größen
  -R /	listet auch inhalte von unterordnern mit auf
  -d /s* /nur datein die mit s beginnen und egal wie lang sind

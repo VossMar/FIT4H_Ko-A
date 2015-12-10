@@ -1,0 +1,41 @@
+setuid Berechtigungen
+	Wen diese Berechtigungen auf ein Programm angewand werden, wird dieses als Eigentümer der Datei ausgeführt und nicht als der, der es gestartet hat.
+	Wird gebraucht wenn User, die keine root-Berechtigungen haben einzelne Programme als Root laufen lassen müssen.
+	Bsp: 	Der sysadmin hat keine Berechtigung auf die shadow Datei zuzugreifen, kann diese aber mit dem passwd-Befehl bearbeiten.
+	Diese werden bei den Zugriffsrechten mit einem "s" beim user gekennzeichnet  anstatt des "x" an der ausführen-Stelle (Numerisch 4000 zur Datei hinzufügen)
+
+setgid Berechtigungen
+	Ähnlich der setuid Berechtigungen
+	# Auf Dateien angewand:
+		Der User, der die Datei ausführt, wird für diese Aktion in die Eigentümergruppe geschrieben und kann somit die Datei ausführen.
+		Diese werden bei den Zugriffsrechten mit einem "s" bei der group gekennzeichnet  anstatt des "x" an der ausführen-Stelle (Numerisch 4000 zur Datei hinzufügen)
+	# Auf Ordner angewand:
+		Ordner, bei denen die setgid-Berechtigungen vergeben werden vererben diese bei neu erstellten Unterordnern automatisch
+		Wird benutzt, wenn ein Gruppenshareordner erstellt wird und andere Gruppenmitglieder auf neu erstellte Datein zugriff erhalten sollen, da in dem fall die Gruppe vom übergeordneten Ordner vererbt wird und sie nicht mehr als Fremde gelten.
+
+Sticky-Bit-Berechtigung
+	Dafür da, dass User mit Änderungsrechten Dateien nicht löschen können, wenn sie nicht der Besitzer der datei sind, obwohl sie durch die setgid die Berechtigung hätten.
+	Sie werden bei others mit einem "t" in dem execute-Symbol festgelegt
+
+
+Links
+	Hard-Link
+		Auf dem System gibt es Tabellen, die Dateinamen in inode-Numbers übersetzten, mit welchen das System arbeitert.
+		Ein Hard-Linke ist die erstellung einer Datei mit der selben inode-N. wie die zu verlinkende Datei (Sie sind sozusagen die selbe Datei)
+		Die Link-count Nummer hinter den Berechtigungen, zeigt wie viele "Dateiverknüpfungen" es zu der Datei gibt
+		- Löschen einer Hard-Link-Datei, löscht diese nciht, es müssen alle gelöscht werden.
+		- zum finden von Hard-Links sollte find -inmum angewendet werden
+		- Kann nur innerhalb eines Dateisystems angewand werden
+		# ln [Original-Datei] [Dateiname 1]
+			Zum erstellen von Hard-Links
+	Symbol-Link
+		Ist eine Datei, die auf eine andere verweist (also nicht die selbe Datei)#
+		- Könen auch auf schon gelöschte Datein verweisen
+		- Sind leicht zu finden mit dem ls Command
+		- Kann Dateisystemübergreifend angewand werden
+		- Können auf Verzeichnisse angewand werden
+		# ln -s [orig-Datei] [Datei-Linkname]
+
+
+FHS (File Hierarchy Standard)
+	gibt es

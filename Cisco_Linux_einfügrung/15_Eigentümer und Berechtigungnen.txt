@@ -1,0 +1,86 @@
+Eigentümerberechtigungen sind essenziell .
+
+Datei_Eigentümerschaft
+	Standartmäßig ist der Ersteller mit seiner Primären Gruppe der Datei deren Eigentümer.
+	Diese Eigentümerschaft kann mit Administartorrechten geändert werden.
+
+groups
+	# zeigt aktuelle Gruppen des Nutzers an
+
+newgrp [Gruppenname]
+	# wechel der Primären Gruppe aus derm Repartoire der Sekundären Gruppen (ohne Administratiove Rechte nur virtuell, da eine shell geöffnet wird, was beim 
+																				schließen neutralisiert wird.)
+usermod -g [Gruppenname] [Username]
+	# ändert die prim. Gruppe des Users dauerhaft
+
+chgrp [Neuer Gruppenname] [Dateipafad]
+	# änderung der Eigentümergruppe einer Datei/Ordners (Nur mit Eigenen Gruppen möglich)
+	-R 	# bezieht auch Unterordner und deren Dateien in die Änderung mit ein
+
+stat
+	# Zeigt erweiterte Informationen zu einer Datei an
+
+chown [neuer_User] [Dateipfad]
+	# zur Besitzeränderung einer Datei/Ordners (vom root User)
+	[neuer_User] = "user:group" oder "user.group" 		# bezieht die Gruppenänderung mit ein (root-Rechte)
+	[neuer_User] = ":group" oder ".group" 				# ändert nur die Eigentümergruppe (ohne root-Rechte möglich)
+
+ls -l [Datei/Ordner]
+	# Die ersten 10 Zeichen zeigen die Zugriffsrechte
+	1		- Zeigt den Dateityp an
+		2	- leseberechtigung des Eigentümers 			[r oder -]
+		3	- schreibberechtigung des Eigentümer 		[w oder -]
+		4	- ausführberechtigung des Eigentümers 		[x oder -] [ein s bei setuid-Berechtigungngen]
+	5	- leseberechtigung der Eigentümergruppe 	[r oder -]
+	6	- schreibberechtigung der Eigentümergruppe 	[w oder -]
+	7	- ausführberechtigung der Eigentümergruppe 	[x oder -]  [ein s bei setgid-Berechtigungngen]
+		8	- leseberechtigung aller anderen 			[r oder -]
+		9	- schreibberechtigung aller anderen			[w oder -]
+		10	- ausführberechtigung aller anderen 		[x oder -] 	[ein t bei sticky-Berechtigungngen]
+
+	# Dateitypen
+		-	- Normale Datei, welche leer ist, text oder binäre Daten enthält	
+		d 	- Verzeichnisdatei (Beinhaltet Verzeichnisnamen und deren Verlinkungen)
+		l 	- symbolic link (zeigt auf eine andere Datei)
+		b 	- Block Datei (bezieht sich auf ein Block-Hardware-Gerät in dem Daten in Byte-Schritten geschrieben werden)
+		c 	- Character Datei (bezieht sich auf ein character-Hardware-Gerät in dem Daten in Byte-Schritten geschrieben werden)
+		p 	- Pipe Datei (Erlaubt einem Prozesses durch diese Datei einem anderem Prozess das Ergebnis zur verfügung zu stellen)
+		s 	- socket Datei (Ähnlich dem Pipe-File, nur das Die Prozesse senden und Empfangen in beide Richtungen können)
+	# Spezialberechtigungen (Chapter16 - anstatt des "x" für ausführbarkeit wird ein "s" gesetzt)
+	# Die Berechtigungnen Übergeordneter Ordner muss berücksichtigt werden. (Falls dieser mit dem Besitzer root Versehen ist und keine x-Berechtigung für alle gesetzt hat, kann auch kein anderer befehle ausführen, wie z.B. ein cd)
+
+chmod [neue Rechte] [Datei/Verzeichnis]
+	# ändert zugriffsrechte für ein Verzeichnis
+	Welches Recht soll geändert werden?
+		Symbolische-Methode
+				u[+/-][r/w/x/s]	 	# User-Rechte werden entzogen oder hinzugefügt
+				g[+/-][r/w/x/s]		# Gruppen-Rechte werden entzogen oder hinzugefügt
+				o[+/-][r/w/x/t]	# Others-Rechte werden entzogen oder hinzugefügt
+				a[+/-][r/w/x]	# Alle-Rechte werden entzogen oder hinzugefügt
+			Eine Kompination aus Befehlen ist möglich. Wenn nötig mit Komma trennen
+			Eine Zuweisung ist auch möglich Bsp.:
+				chmod u=r-x abc.txt
+		Numerische-Methode
+				Einteilung der Rechte in Nummern
+					0	- ---
+					1	- --x
+					2	- -w-
+					3	- -wx
+					4	- r--
+					5	- r-x
+					6	- rw-
+					7	- rwx
+				Anwendung für -rwxr-xr--
+					chmod 754 text.txt
+			Bei zuweisung einer setuid die 4000 zu der bestehenden zahl addieren
+			Bei zuweisung einer setgid die 2000 zu der bestehenden zahl addieren
+			Bei zuweisung einer sticky die 1000 zu der bestehenden zahl addieren
+
+umask
+	# zeigt die umask nummer des Benutzers an, die von dem Dateistandart abgezogen wird und dessen ergebnis die tatsächlichen Zugriffsrechte der 
+	Bsp:
+		File Default 	667 		# rw-rw-rwx
+		Umask 			003			# -------wx
+		Zugriffsrechte 	664			# rw-rw-r--
+
+
