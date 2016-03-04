@@ -1,0 +1,25 @@
+SSH konfigurieren
+	Die Konfigurationsdatei anpassen
+	sudo vim /etc/ssh/sshd_config
+		-Port 4326 			
+			# Standartport 22, größer 1024 und kleiner 65535
+		-PermitRootLogin no
+			#der root-User kann sich nicht über ssh einloggen
+	#nach der Änderung and der Konfigurationsdatei:
+		sudo service ssh restart
+
+SSH-Login nur mit definierten Clients mit SSH-Key
+	Schlüssel auf Client(Desktop-Rechner) generieren
+	ssh-keygen -t rsa -C "user@gmx.de"
+		#Schlüssel des Clients wird in der Datei ~/.ssh/id_rsa abgelegt
+	ssh-copy-id -i ~/.ssh/id_rsa.pub user@rechnername
+
+	Konfigurationsdatei sshd_config:
+		PasswordAuthentication no
+		RSAAuthentication yes
+		PubkeyAuthentication yes
+
+Sicherheitslücken kontrollieren:
+	Es darf keinen User geben, der sich einloggen darf(/etc/passwd - letzter Eintrag pro Zeile) und der in der /etc/shadow zwischen den ersten beiden ":" nichts, ein !, oder ein * haben.
+	/etc/shadow
+		#hier darf es keine Einträge ohne Passwort geben
