@@ -1,0 +1,86 @@
+Installation:
+	sudo apt-get update
+	sudo apt-get install apache2
+	sudo apt-get install lynx
+
+Modul php5 hinzufügen
+	sudo apt-get install libapache2-mod-php5
+
+Modul aktivieren:
+	sudo a2enmod php5
+
+Apache neustarten
+	sudo service apache2 restart
+
+
+Virtuelle Webs
+	a.Verzechnis anlegen
+		sudo mkdir /var/www/html/webneu
+		sudo vim /var/www/html/index.php
+			<?php phpinfo(); ?>
+		sudo chown -R www-dat:www-dat /var/www/html/webneu/
+
+	b.Virtual Host konfigurieren
+		sudo vim /etc/apache2/sites-available/webneu.conf
+			<VirtualHost *:80>
+				ServerName webneu.r1-11s24.local
+				DocumentRoot /var/www/html/webneu
+			</VirtualHost>
+
+	c.Virtual Host aktivieren
+		sudo a2ensite webneu
+		sudo service apace2 reload
+
+	d. Testen
+		(Bei keinem vorhandnenen DNS, müssen die Adressen zum testen in die Hostdatein des jeweiligen Rechners eingetragen werden.)
+
+
+WebDav-Ordner einrichten
+	a. WebDAV-Modul aktivieren
+		sudo a2enmod dav
+		sudo a2enmod dav_fs
+		sudo service apache2 restart
+
+	b. Ordner erstellen
+		sudo mkdir /var/www/html/webdav
+		sudo chown www-data:www-data /var/www/html/webdav
+
+	c. webdav für die seiten aktivieren (in der default.conf oder .conf der seite)
+		<Directory "/var/www/html/webdav">
+		DAV on
+		Options +Indexes
+		</Directory>
+
+	d.Seite veröffentlichen
+		sudo a2ensite webdav.conf
+
+
+SSL-für WebDAV aktivieren
+	a. SSL-Key erzeugen
+		(Privaten)
+		sudo -i
+		openssl genrsa -out /etc/ssl/private/apache.key 2048
+
+	b. SSL-Zertifikat 
+		(Eigenes)
+		openssl req -x509 -key /etc/ssl/private/apache.key -days 365 -sha256 -out /etc/ssl/certs/apache.crt
+		exit
+
+	c. Konfigurieren & aktivieren
+		/etc/apache2/ports.conf
+			<IfModule mod_ssl.c>
+				Listen 443
+			</IfModule>
+		sudo a2enmod ssl
+		sudo service apache2 force-reload
+
+	d. Webseite konfigurieren
+		/etc/apache2/sites-available/webdav.conf erweitern
+			<VirtualHost *:443>
+				SSLEngine on
+				SSLCertificateFile /etc/ssl/certs/apache.crt
+				SSLCertificateKeyFile /etc/ssl/private/apache.key
+				.
+				.
+			</VirtualHost>
+		sudo service apache2 force-reload
